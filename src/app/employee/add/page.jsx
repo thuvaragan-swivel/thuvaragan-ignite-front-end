@@ -37,7 +37,7 @@ const Page = () => {
   return (
     <>
       <h1>ADD EMPLOYEE DATA</h1>
-      <EmployeeForm employee={employee} setEmployee={setEmployee} handleSubmit={addEmployeeDetail} />
+      <EmployeeForm employee={employee} setEmployee={setEmployee} handleSubmit={addEmployeeDetail} mode="add" />
     </>
   );
 };

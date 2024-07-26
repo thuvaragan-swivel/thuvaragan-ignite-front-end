@@ -5,7 +5,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 
-const EmployeeForm = ({ employee, setEmployee, handleSubmit }) => {
+const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
   return (
     <Form>
       <Form.Group controlId="formFirstName">
@@ -82,7 +82,7 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit }) => {
         />
       </Form.Group>
       <Button onClick={handleSubmit} variant="primary" type="button" className="mt-3">
-        Submit
+        {mode === "add" ? "Add Employee" : "Update Employee"}
       </Button>
     </Form>
   );

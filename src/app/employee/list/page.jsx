@@ -62,7 +62,7 @@ const Page = () => {
     <div>
       <h1>Employee List</h1>
       <Link href="/employee/add">
-        <Button className="mb-3">Add Employee</Button>
+        <Button className="mb-3">Add New Employee</Button>
       </Link>
   
       {/* Search Box */}
