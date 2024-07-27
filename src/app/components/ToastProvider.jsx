@@ -6,7 +6,7 @@ const ToastProvider = ({ children }) => {
   return (
     <>
       {children}
-      <ToastContainer position="top-center" autoClose={10000} />
+      <ToastContainer position="top-center" autoClose={4000} />
     </>
   );
 };

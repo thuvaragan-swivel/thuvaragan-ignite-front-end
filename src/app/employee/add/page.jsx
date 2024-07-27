@@ -1,9 +1,11 @@
+// pages/addEmployee.js
+
 "use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import EmployeeForm from "@/app/components/EmployeeForm";
-import { handleApiError, formatEmployeeData, performApiRequest } from "@/utils/employeeUtils";
+import { handleApiError, formatEmployeeData, performApiRequest } from "@/app/utils/employeeUtils";
 import { toast } from "react-toastify";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
@@ -17,6 +19,7 @@ const Page = () => {
     gender: "",
     employeeId: "",
   });
+  const [errors, setErrors] = useState({});
 
   const addEmployeeDetail = async () => {
     const formattedEmployee = formatEmployeeData(employee);
@@ -32,15 +35,23 @@ const Page = () => {
         gender: "",
         employeeId: "",
       });
+      setErrors({});
     } catch (error) {
-      handleApiError(error);
+      const errorMessages = handleApiError(error);
+      setErrors(errorMessages);
     }
   };
 
   return (
     <>
       <h1>ADD EMPLOYEE DATA</h1>
-      <EmployeeForm employee={employee} setEmployee={setEmployee} handleSubmit={addEmployeeDetail} mode="add" />
+      <EmployeeForm
+        employee={employee}
+        setEmployee={setEmployee}
+        handleSubmit={addEmployeeDetail}
+        mode="add"
+        errors={errors}
+      />
     </>
   );
 };

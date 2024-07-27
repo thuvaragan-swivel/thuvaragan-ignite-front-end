@@ -1,11 +1,10 @@
-// components/EmployeeForm.js
 
 "use client";
 
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 
-const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
+const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => {
   return (
     <Form>
       <Form.Group controlId="formFirstName">
@@ -18,7 +17,11 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
             setEmployee({ ...employee, firstName: e.target.value })
           }
           required
+          isInvalid={errors.firstName}
         />
+        <Form.Control.Feedback type="invalid">
+          {errors.firstName}
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formLastName" className="mt-3">
         <Form.Label>Last Name</Form.Label>
@@ -30,7 +33,11 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
             setEmployee({ ...employee, lastName: e.target.value })
           }
           required
+          isInvalid={errors.lastName}
         />
+        <Form.Control.Feedback type="invalid">
+          {errors.lastName}
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formEmailAddress" className="mt-3">
         <Form.Label>Email Address</Form.Label>
@@ -42,7 +49,11 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
             setEmployee({ ...employee, emailAddress: e.target.value })
           }
           required
+          isInvalid={errors.emailAddress}
         />
+        <Form.Control.Feedback type="invalid">
+          {errors.emailAddress}
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formPhoneNumber" className="mt-3">
         <Form.Label>Phone Number</Form.Label>
@@ -54,7 +65,11 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
             setEmployee({ ...employee, phoneNumber: e.target.value })
           }
           required
+          isInvalid={errors.phoneNumber}
         />
+        <Form.Control.Feedback type="invalid">
+          {errors.phoneNumber}
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formGender" className="mt-3">
         <Form.Label>Gender</Form.Label>
@@ -63,11 +78,15 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
           value={employee.gender}
           onChange={(e) => setEmployee({ ...employee, gender: e.target.value })}
           required
+          isInvalid={errors.gender}
         >
           <option value="">Select</option>
           <option value="M">Male</option>
           <option value="F">Female</option>
         </Form.Control>
+        <Form.Control.Feedback type="invalid">
+          {errors.gender}
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formEmployeeId" className="mt-3">
         <Form.Label>Employee ID</Form.Label>
@@ -76,12 +95,15 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
           placeholder="Enter employee ID"
           value={employee.employeeId}
           onChange={(e) => {
-            // Convert input to a number, handle empty strings as well
             const value = e.target.value === "" ? "" : Number(e.target.value);
             setEmployee({ ...employee, employeeId: value });
           }}
           required
+          isInvalid={errors.employeeId}
         />
+        <Form.Control.Feedback type="invalid">
+          {errors.employeeId}
+        </Form.Control.Feedback>
       </Form.Group>
       <Button onClick={handleSubmit} variant="primary" type="button" className="mt-3">
         {mode === "add" ? "Add Employee" : "Update Employee"}

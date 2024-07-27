@@ -3,7 +3,8 @@
 import { toast } from 'react-toastify';
 import { fetchData } from './fetchApiUtils';
 
-// Function to handle errors and display toasts
+// utils/employeeUtils.js
+
 export const handleApiError = (error) => {
   let errorMessage;
 
@@ -14,17 +15,21 @@ export const handleApiError = (error) => {
   }
 
   if (typeof errorMessage === 'string') {
-    toast.error(errorMessage);
+    // Return string error messages
+    return { general: errorMessage }; // Return as a general error
   } else if (typeof errorMessage === 'number') {
-    toast.error(errorMessage.toString());
+    // Return number error messages
+    return { general: errorMessage.toString() }; // Return as a general error
   } else if (typeof errorMessage === 'object') {
-    Object.entries(errorMessage).forEach(([field, msg]) => {
-      toast.error(typeof msg === 'string' ? msg : msg.toString());
-    });
+    // Return field-specific errors
+    return errorMessage; // Return as field-specific errors
   } else {
-    toast.error("An error occurred");
+    // Return a general error for unexpected cases
+    return { general: "An error occurred" };
   }
 };
+
+
 
 // Function to format employee data
 export const formatEmployeeData = (employee) => {
