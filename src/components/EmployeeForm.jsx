@@ -75,9 +75,11 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
           type="number"
           placeholder="Enter employee ID"
           value={employee.employeeId}
-          onChange={(e) =>
-            setEmployee({ ...employee, employeeId: e.target.value })
-          }
+          onChange={(e) => {
+            // Convert input to a number, handle empty strings as well
+            const value = e.target.value === "" ? "" : Number(e.target.value);
+            setEmployee({ ...employee, employeeId: value });
+          }}
           required
         />
       </Form.Group>
