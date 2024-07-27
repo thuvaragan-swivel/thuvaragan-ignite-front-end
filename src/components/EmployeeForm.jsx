@@ -36,7 +36,7 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
         <Form.Label>Email Address</Form.Label>
         <Form.Control
           type="email"
-          placeholder="Enter email address"
+          placeholder="Enter email address  ( format: username@domain.tld )"
           value={employee.emailAddress}
           onChange={(e) =>
             setEmployee({ ...employee, emailAddress: e.target.value })
@@ -48,7 +48,7 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode }) => {
         <Form.Label>Phone Number</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter phone number"
+          placeholder="Enter phone number  ( format: +94xxxxxxxxx )"
           value={employee.phoneNumber}
           onChange={(e) =>
             setEmployee({ ...employee, phoneNumber: e.target.value })
