@@ -50,7 +50,7 @@ const Page = () => {
 
   const handleDelete = async (employeeId) => {
     try {
-      await fetchData(`http://localhost:8000/api/employee/${employeeId}`, "DELETE");
+      await fetchData(`${SERVER_URL}/${employeeId}`, "DELETE");
       getEmployeeList();
     } catch (error) {
       console.error("Error deleting employee:", error);

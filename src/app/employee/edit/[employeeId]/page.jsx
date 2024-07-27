@@ -22,8 +22,8 @@ const Page = () => {
     employeeId: "",
   });
 
-  const fetchEmployeeData = async (id) => {
-    const data = await performApiRequest(`${SERVER_URL}/${id}`, "GET");
+  const fetchEmployeeData = async (employeeId) => {
+    const data = await performApiRequest(`${SERVER_URL}/${employeeId}`, "GET");
     setEmployee(data);
   };
 
