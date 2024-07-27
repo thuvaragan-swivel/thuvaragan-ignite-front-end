@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Ignore environment files
+.env
+
+# Ignore VS Code settings
+.vscode/
