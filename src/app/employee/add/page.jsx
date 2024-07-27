@@ -2,8 +2,8 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import EmployeeForm from "@/components/EmployeeForm";
-import { handleApiError, formatEmployeeData, performApiRequest } from "@/utils/employee-utils";
+import EmployeeForm from "@/app/components/EmployeeForm";
+import { handleApiError, formatEmployeeData, performApiRequest } from "@/utils/employeeUtils";
 import { toast } from "react-toastify";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;

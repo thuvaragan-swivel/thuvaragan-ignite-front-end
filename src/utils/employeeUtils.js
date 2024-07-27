@@ -1,7 +1,7 @@
 // utils/employeeUtils.js
 
 import { toast } from 'react-toastify';
-import { fetchData } from './api.js';
+import { fetchData } from './fetchApiUtils';
 
 // Function to handle errors and display toasts
 export const handleApiError = (error) => {

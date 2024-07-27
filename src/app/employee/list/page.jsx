@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button, Table, Form } from "react-bootstrap";
-import { fetchData } from "@/utils/api";
+import { fetchData } from "@/utils/fetchApiUtils";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
 
