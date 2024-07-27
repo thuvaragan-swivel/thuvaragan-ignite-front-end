@@ -6,6 +6,9 @@ import React, { useEffect, useState } from "react";
 import { Button, Table, Form } from "react-bootstrap";
 import { fetchData } from "@/utils/api";
 
+const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
+
+
 const Page = () => {
   const [employees, setEmployees] = useState([]);
   const [search, setSearch] = useState('');
@@ -28,7 +31,7 @@ const Page = () => {
     console.log("Query Params:", queryParams);
     
     try {
-      const data = await fetchData(`http://localhost:8000/api/employee?${queryParams}`);
+      const data = await fetchData(`${SERVER_URL}?${queryParams}`);
       console.log("Fetched employees:", data);
       if (data && Array.isArray(data.data)) {
         setEmployees(data.data);
