@@ -3,8 +3,17 @@
 
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useRouter } from "next/navigation";
+
 
 const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => {
+
+  const router = useRouter();
+
+  const handleCancel = () => {
+    router.push('/employee/list'); // Adjust the path as needed
+  };
+  
   return (
     <Form>
       <Form.Group controlId="formFirstName">
@@ -108,6 +117,10 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => 
       <Button onClick={handleSubmit} variant="primary" type="button" className="mt-3">
         {mode === "add" ? "Add Employee" : "Update Employee"}
       </Button>
+      <Button onClick={handleCancel} variant="secondary" type="button" className="mt-3 ms-2">
+  Cancel
+</Button>
+
     </Form>
   );
 };
