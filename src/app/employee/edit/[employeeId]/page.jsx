@@ -60,6 +60,8 @@ import EmployeeForm from "@/components/EmployeeForm";
 import { fetchData } from "@/utils/api";
 import { toast } from "react-toastify";
 
+const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
+
 const Page = () => {
   const router = useRouter();
   const { employeeId } = useParams();
@@ -74,7 +76,7 @@ const Page = () => {
   });
 
   const fetchEmployeeData = async (employeeId) => {
-    const data = await fetchData(`http://localhost:8000/api/employee/${employeeId}`);
+    const data = await fetchData(`${SERVER_URL}/${employeeId}`);
     setEmployee(data);
   };
 
@@ -87,7 +89,7 @@ const Page = () => {
 
     
     try {
-      const data = await fetchData(`http://localhost:8000/api/employee/${employeeId}`, "PUT", formattedEmployee);
+      const data = await fetchData(`${SERVER_URL}/${employeeId}`, "PUT", formattedEmployee);
       toast.success(data.message || "The Employee has been Updated Successfully.");
       router.push("/employee/list");
     } catch (error) {
