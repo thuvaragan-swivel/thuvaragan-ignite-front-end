@@ -9,7 +9,7 @@ import EmployeeForm from "@/app/components/EmployeeForm";
 import { handleApiError, formatEmployeeData, performApiRequest } from "@/app/utils/employeeUtils";
 import { toast } from "react-toastify";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
+const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Page = () => {
   const router = useRouter();

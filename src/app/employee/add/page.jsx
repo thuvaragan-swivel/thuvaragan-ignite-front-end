@@ -11,7 +11,7 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
+const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Page = () => {
   const [employee, setEmployee] = useState({

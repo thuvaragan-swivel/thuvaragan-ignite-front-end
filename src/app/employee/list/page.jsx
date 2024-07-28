@@ -12,7 +12,7 @@ import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } fr
 import { useSelector, useDispatch } from 'react-redux';
 import { setView, setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
+const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Page = () => {
   const dispatch = useDispatch();
