@@ -7,7 +7,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 // Function to get the appropriate image URL based on gender
 const getPhotoUrl = (gender) => {
-  return gender === "M" ? "/icons/male-grid.png" : "/icons/female-grid.png";
+  return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
 };
 
 const EmployeeTable = ({ employees, handleShowModal }) => {

@@ -87,8 +87,8 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => 
           isInvalid={errors.gender}
         >
           <option value="">Select</option>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
+          <option value="Male">M</option>
+          <option value="Female">F</option>
         </Form.Control>
         <Form.Control.Feedback type="invalid">
           {errors.gender}
