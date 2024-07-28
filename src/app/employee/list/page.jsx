@@ -143,14 +143,15 @@ const Page = () => {
           Are you sure you want to delete the employee <strong>{employeeToDelete ? `${employeeToDelete.firstName} ${employeeToDelete.lastName}` : ''}</strong> from the system?
         </Modal.Body>
         <Modal.Footer>
+        <Button variant="danger" onClick={handleDelete}>
+            <FaTrashAlt className="me-2" />
+            Confirm, Delete
+          </Button>
           <Button variant="secondary" onClick={handleCloseModal}>
             <FaTimesCircle className="me-2" />
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleDelete}>
-            <FaTrashAlt className="me-2" />
-            Confirm, Delete
-          </Button>
+          
         </Modal.Footer>
       </Modal>
     </div>
