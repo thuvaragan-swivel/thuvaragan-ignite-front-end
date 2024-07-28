@@ -76,7 +76,7 @@ const Page = () => {
 
   useEffect(() => {
     getEmployeeList();
-  }, [search, sort, pagination.currentPage]);
+  }, [search, sort, pagination.currentPage, pagination.pageSize]);
 
   return (
     <div>
@@ -95,7 +95,10 @@ const Page = () => {
         type="text"
         placeholder="Search by first name, last name, or email"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setPagination((prev) => ({ ...prev, currentPage: 1 })); // Reset to first page
+        }}
         className="mb-3"
       />
 
@@ -105,6 +108,7 @@ const Page = () => {
         onChange={(e) => {
           const [field, order] = e.target.value.split('-');
           setSort({ field, order });
+          setPagination((prev) => ({ ...prev, currentPage: 1 })); // Reset to first page
         }}
         className="mb-3"
       >
