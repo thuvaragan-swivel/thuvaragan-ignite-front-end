@@ -1,11 +1,12 @@
 // src/app/redux/store.js
+
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import viewReducer from './viewSlice';
+import employeeReducer from './employeeSlice';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from './storage'; // Import the custom storage
 
 const rootReducer = combineReducers({
-  view: viewReducer,
+  employee: employeeReducer,
 });
 
 const persistConfig = {

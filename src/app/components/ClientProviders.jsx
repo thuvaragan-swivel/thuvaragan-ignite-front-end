@@ -3,7 +3,7 @@
 
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '../redux/store.js';
+import { store, persistor } from '@/app/redux/store';
 import ToastProvider from './ToastProvider.jsx';
 
 const ClientProviders = ({ children }) => {
