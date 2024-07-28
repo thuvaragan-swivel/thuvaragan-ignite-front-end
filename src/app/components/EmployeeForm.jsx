@@ -1,10 +1,7 @@
-
-"use client";
-
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useRouter } from "next/navigation";
-
+import { FaPlusCircle, FaEdit, FaTimesCircle } from "react-icons/fa";
 
 const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => {
 
@@ -13,7 +10,7 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => 
   const handleCancel = () => {
     router.push('/employee/list'); // Adjust the path as needed
   };
-  
+
   return (
     <Form>
       <Form.Group controlId="formFirstName">
@@ -115,12 +112,13 @@ const EmployeeForm = ({ employee, setEmployee, handleSubmit, mode, errors }) => 
         </Form.Control.Feedback>
       </Form.Group>
       <Button onClick={handleSubmit} variant="primary" type="button" className="mt-3">
+        {mode === "add" ? <FaPlusCircle className="me-2" /> : <FaEdit className="me-2" />}
         {mode === "add" ? "Add Employee" : "Update Employee"}
       </Button>
       <Button onClick={handleCancel} variant="secondary" type="button" className="mt-3 ms-2">
-  Cancel
-</Button>
-
+        <FaTimesCircle className="me-2" />
+        Cancel
+      </Button>
     </Form>
   );
 };

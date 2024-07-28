@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Button } from "react-bootstrap";
 import Link from "next/link";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 const EmployeeTable = ({ employees, handleShowModal }) => {
   return (
@@ -28,10 +29,14 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
               <td>{phoneNumber}</td>
               <td>{gender}</td>
               <td>
-                <Link href={`edit/${employeeId}`}>
-                  <Button className="me-2">Edit</Button>
+                <Link href={`edit/${employeeId}`} passHref>
+                  <Button className="me-2">
+                    <FaEdit className="me-2" />
+                    Edit
+                  </Button>
                 </Link>
                 <Button onClick={() => handleShowModal(item)} className="me-2">
+                  <FaTrashAlt className="me-2" />
                   Delete
                 </Button>
               </td>
