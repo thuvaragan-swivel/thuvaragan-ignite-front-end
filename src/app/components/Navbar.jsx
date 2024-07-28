@@ -1,40 +1,58 @@
-// "use client"
+
+// "use client";
 
 // import Link from "next/link";
-// import { DropdownButton, DropdownItem } from "react-bootstrap";
+// import { DropdownButton, Dropdown } from "react-bootstrap";
+// import { FaTable, FaTh, FaList } from "react-icons/fa";
 
-// export default function Navbar() {
+// const Navbar = ({ view, setView }) => {
 //   return (
-//     <nav>
-//       <Link href={"/employee/list"}>Employee Management System</Link>
+//     <nav className="d-flex justify-content-between align-items-center mb-3">
+//       <Link href={"/employee/list"} className="nav-link">
+//         Employee Management System
+//       </Link>
 
-//       <DropdownButton id="dropdown-basic-button" title="View">
-//         <DropdownItem>Table</DropdownItem>
-//         <DropdownItem>Grid</DropdownItem>
+//       <DropdownButton id="dropdown-basic-button" title={<><FaList className="me-2" />View</>}>
+//         <Dropdown.Item onClick={() => setView('table')} active={view === 'table'}>
+//           <FaTable className="me-2" />
+//           Table
+//         </Dropdown.Item>
+//         <Dropdown.Item onClick={() => setView('grid')} active={view === 'grid'}>
+//           <FaTh className="me-2" />
+//           Grid
+//         </Dropdown.Item>
 //       </DropdownButton>
 //     </nav>
 //   );
-// }
+// };
 
+// export default Navbar;
+
+// src/app/components/Navbar.jsx
 "use client";
 
 import Link from "next/link";
+import { useDispatch, useSelector } from 'react-redux';
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { FaTable, FaTh, FaList } from "react-icons/fa";
+import { setView } from '@/app/redux/viewSlice';
 
-const Navbar = ({ view, setView }) => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const view = useSelector((state) => state.view.view);
+
   return (
     <nav className="d-flex justify-content-between align-items-center mb-3">
-      <Link href={"/employee/list"} className="nav-link">
+      <Link href="/employee/list" className="nav-link">
         Employee Management System
       </Link>
 
       <DropdownButton id="dropdown-basic-button" title={<><FaList className="me-2" />View</>}>
-        <Dropdown.Item onClick={() => setView('table')} active={view === 'table'}>
+        <Dropdown.Item onClick={() => dispatch(setView('table'))} active={view === 'table'}>
           <FaTable className="me-2" />
           Table
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => setView('grid')} active={view === 'grid'}>
+        <Dropdown.Item onClick={() => dispatch(setView('grid'))} active={view === 'grid'}>
           <FaTh className="me-2" />
           Grid
         </Dropdown.Item>

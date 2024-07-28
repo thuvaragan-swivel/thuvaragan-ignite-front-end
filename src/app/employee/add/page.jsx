@@ -7,6 +7,9 @@ import React, { useState } from "react";
 import EmployeeForm from "@/app/components/EmployeeForm";
 import { handleApiError, formatEmployeeData, performApiRequest } from "@/app/utils/employeeUtils";
 import { toast } from "react-toastify";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
+import { Button } from "react-bootstrap";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
 
@@ -27,6 +30,7 @@ const Page = () => {
     try {
       const data = await performApiRequest(SERVER_URL, "POST", formattedEmployee);
       toast.success(data.message || "The Employee has been Added Successfully.");
+      // router.push("/employee/list");
       setEmployee({
         firstName: "",
         lastName: "",
@@ -44,6 +48,12 @@ const Page = () => {
 
   return (
     <>
+    <Link href="/" passHref>
+        <Button variant="secondary" className="mt-3">
+          <FaArrowLeft className="me-2" />
+          Home
+        </Button>
+      </Link>
       <h1>ADD EMPLOYEE DATA</h1>
       <EmployeeForm
         employee={employee}
@@ -52,6 +62,7 @@ const Page = () => {
         mode="add"
         errors={errors}
       />
+      
     </>
   );
 };

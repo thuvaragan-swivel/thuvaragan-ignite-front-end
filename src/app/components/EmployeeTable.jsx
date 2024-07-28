@@ -1,14 +1,22 @@
+"use client";
+
 import React from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Image } from "react-bootstrap";
 import Link from "next/link";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+
+// Function to get the appropriate image URL based on gender
+const getPhotoUrl = (gender) => {
+  return gender === "M" ? "/icons/male-grid.png" : "/icons/female-grid.png";
+};
 
 const EmployeeTable = ({ employees, handleShowModal }) => {
   return (
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th>Employee #</th>
+          <th>Photo</th>
+          <th>Employee ID</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -22,6 +30,13 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
           const { employeeId, firstName, lastName, emailAddress, phoneNumber, gender } = item;
           return (
             <tr key={index}>
+              <td>
+                <Image 
+                  src={getPhotoUrl(gender)} 
+                  alt={`${gender} icon`} 
+                  style={{ width: "40px", height: "40px", objectFit: "cover" }} 
+                />
+              </td>
               <td>{employeeId}</td>
               <td>{firstName}</td>
               <td>{lastName}</td>
@@ -44,7 +59,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
           );
         }) : (
           <tr>
-            <td colSpan="7" className="text-center">No employees found</td>
+            <td colSpan="8" className="text-center">Oops...<br />No Employees Found in the System.</td>
           </tr>
         )}
       </tbody>

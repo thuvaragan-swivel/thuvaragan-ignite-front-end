@@ -9,6 +9,8 @@ import Navbar from "../../components/Navbar.jsx";
 import EmployeeTable from "../../components/EmployeeTable.jsx";
 import EmployeeGrid from "../../components/EmployeeGrid.jsx";
 import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } from "react-icons/fa";
+import { useSelector, useDispatch } from 'react-redux';
+import { setView } from '@/app/redux/viewSlice';
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL_POST;
 
@@ -23,7 +25,8 @@ const Page = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
-  const [view, setView] = useState('table');
+  const view = useSelector((state) => state.view.view);
+  const dispatch = useDispatch();
 
   const getEmployeeList = async () => {
     const queryParams = new URLSearchParams({
@@ -77,7 +80,7 @@ const Page = () => {
 
   return (
     <div>
-      <Navbar view={view} setView={setView} />
+      <Navbar view={view} setView={(newView) => dispatch(setView(newView))} />
 
       <h1>Employee List</h1>
       <Link href="/employee/add" passHref>

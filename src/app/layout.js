@@ -1,7 +1,8 @@
+// src/app/layout.js or src/pages/_app.js
+
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/components/Navbar";
-import ToastProvider from "@/app/components/ToastProvider";
+import ClientProviders from "@/app/components/ClientProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastProvider>{children}</ToastProvider>
-        {/* {children} */}
-        </body>
+        <ClientProviders>
+          {children}
+        </ClientProviders>
+      </body>
     </html>
   );
 }
