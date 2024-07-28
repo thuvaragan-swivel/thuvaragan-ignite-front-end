@@ -29,7 +29,7 @@ const Page = () => {
 
     try {
       const data = await performApiRequest(SERVER_URL, "POST", formattedEmployee);
-      toast.success(data.message || "The Employee has been Added Successfully.");
+      toast.success(data.message || "A New Employee has been Successfully Added to the System.");
       // router.push("/employee/list");
       setEmployee({
         firstName: "",

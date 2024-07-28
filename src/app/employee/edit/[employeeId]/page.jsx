@@ -39,7 +39,7 @@ const Page = () => {
 
     try {
       const data = await performApiRequest(`${SERVER_URL}/${employeeId}`, "PUT", formattedEmployee);
-      toast.success(data.message || "The Employee has been Updated Successfully.");
+      toast.success(data.message || "The Employee Data has been Successfully Updated.");
       router.push("/employee/list");
       setErrors({});
     } catch (error) {
