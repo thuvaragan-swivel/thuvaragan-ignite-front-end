@@ -1,8 +1,12 @@
 // hooks/useEmployeeForm.js
-import { useState } from 'react';
-import { handleApiError, formatEmployeeData, performApiRequest } from '@/app/utils/employeeUtils';
-import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import {
+  handleApiError,
+  formatEmployeeData,
+  performApiRequest,
+} from "@/app/utils/employeeUtils";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const useEmployeeForm = (initialEmployee, mode) => {
   const [employee, setEmployee] = useState(initialEmployee);
@@ -14,8 +18,15 @@ const useEmployeeForm = (initialEmployee, mode) => {
 
     try {
       const data = await performApiRequest(url, method, formattedEmployee);
-      toast.success(data.message || (mode === "add" ? "A New Employee has been Successfully Added to the System." : "The Employee Data has been Successfully Updated."));
-      
+
+      const successMessage =
+        data.message ||
+        (mode === "add"
+          ? `A New Employee named ${data.data.firstName} ${data.data.lastName} has been Successfully Added to the System.`
+          : "The Employee Data has been Successfully Updated.");
+
+      toast.success(successMessage);
+
       if (mode === "add") {
         setEmployee(initialEmployee);
       } else {
