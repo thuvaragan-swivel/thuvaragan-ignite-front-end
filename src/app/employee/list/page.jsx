@@ -11,6 +11,8 @@ import EmployeeGrid from "../../components/EmployeeGrid.jsx";
 import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } from "react-icons/fa";
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
+import { toast } from 'react-toastify';
+
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -48,14 +50,21 @@ const Page = () => {
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
-        await fetchData(`${SERVER_URL}/${employeeToDelete.employeeId}`, "DELETE");
+        const response = await fetchData(`${SERVER_URL}/${employeeToDelete.employeeId}`, "DELETE");
+        if (response && response.message) {
+          toast.success(response.message);
+        } else {
+          toast.error("Failed to Delete the Employee!");
+        }
         getEmployeeList();
         handleCloseModal();
       } catch (error) {
-        console.error("Error deleting employee:", error);
+        console.error("Error Deleting Employee:", error);
+        toast.error("An error occurred while Deleting the Employee!");
       }
     }
   };
+  
 
   const handleShowModal = (employee) => {
     setEmployeeToDelete(employee);
