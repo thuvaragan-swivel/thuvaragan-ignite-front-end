@@ -10,7 +10,7 @@ import EmployeeTable from "../../components/EmployeeTable.jsx";
 import EmployeeGrid from "../../components/EmployeeGrid.jsx";
 import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } from "react-icons/fa";
 import { useSelector, useDispatch } from 'react-redux';
-import { setView, setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
+import { setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -101,7 +101,7 @@ const Page = () => {
         }}
         className="mb-3"
       >
-        <option value="">Sort by</option>
+        <option value="" hidden>Sort by</option>
         <option value="firstName-asc">First Name (Asc)</option>
         <option value="firstName-desc">First Name (Desc)</option>
         <option value="createdAt-asc">Created At (Asc)</option>
