@@ -24,7 +24,7 @@ body {
 
 .custom-navbar .navbar-nav {
   margin-left: auto;
-  margin-right: auto; /* Center the dropdown */
+  margin-right: 70px; /* Center the dropdown */
 }
 
 .custom-navbar .nav-link {
