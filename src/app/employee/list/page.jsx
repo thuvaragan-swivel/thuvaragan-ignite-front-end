@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { fetchData } from "@/app/utils/fetchApiUtils";
-import Navbar from "../../components/Navbar.jsx";
+import CustomNavbar from "../../components/CustomNavbar.jsx";
 import EmployeeTable from "../../components/EmployeeTable.jsx";
 import EmployeeGrid from "../../components/EmployeeGrid.jsx";
 import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } from "react-icons/fa";
@@ -100,7 +100,7 @@ const Page = () => {
 
   return (
     <div className="center-container">
-      <Navbar />
+      <CustomNavbar />
 
       {/* <h1>Employee List</h1> */}
       <div className="add-search-wrapper">
