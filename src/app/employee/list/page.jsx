@@ -99,21 +99,23 @@ const Page = () => {
   }, [search, sort, pagination.currentPage, pagination.pageSize]);
 
   return (
-    <div>
+    <div className="center-container">
       <Navbar />
 
-      <h1>Employee List</h1>
-      <Link href="/employee/add" passHref>
-        <Button className="mb-3">
+      {/* <h1>Employee List</h1> */}
+      <div className="add-search-wrapper">
+      <Link href="/employee/add" passHref className="add-employee-link">
+        <Button className="mb-3 add-employee-btn">
           <FaPlusCircle className="me-2" />
           Add New Employee
         </Button>
       </Link>
 
-      {/* Search Box */}
-      <Form.Control
+<div className="search-sort-container mb-3">
+{/* Search Box */}
+<Form.Control
         type="text"
-        placeholder="Search by first name, last name, or email"
+        placeholder="Search by First Name, Last Name, or Email"
         value={search}
         onChange={(e) => dispatch(setSearch(e.target.value))}
         className="mb-3"
@@ -134,6 +136,9 @@ const Page = () => {
         <option value="createdAt-asc">Created At (Asc)</option>
         <option value="createdAt-desc">Created At (Desc)</option>
       </Form.Select>
+</div>
+</div>
+      
 
       {/* Employee List */}
       {view === 'table' ? (
@@ -143,7 +148,7 @@ const Page = () => {
       )}
 
       {/* Pagination Controls */}
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between pagination-controls">
         <Button
           disabled={pagination.currentPage === 1}
           onClick={() => dispatch(setPagination({ ...pagination, currentPage: pagination.currentPage - 1 }))}

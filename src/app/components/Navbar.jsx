@@ -11,7 +11,7 @@ const CustomNavbar = () => {
   const view = useSelector((state) => state.employee.view);
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="mb-3">
+    <Navbar bg="primary" variant="dark" expand="lg" className="mb-3 custom-navbar" >
       <Navbar.Brand href="/employee/list">Employee Management System</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

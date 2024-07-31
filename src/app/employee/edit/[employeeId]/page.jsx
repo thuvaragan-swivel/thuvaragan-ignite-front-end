@@ -29,7 +29,7 @@ const Page = () => {
 
   return (
     <>
-      <h1>UPDATE EMPLOYEE DATA</h1>
+      {/* <h1>UPDATE EMPLOYEE DATA</h1> */}
       <EmployeeForm
         employee={employee}
         setEmployee={setEmployee}

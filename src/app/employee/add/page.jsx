@@ -29,13 +29,14 @@ const Page = () => {
 
   return (
     <>
+    <div className="add-container">
       <Link href="/" passHref>
-        <Button variant="secondary" className="mt-3">
+        <Button variant="secondary" className="mt-3 go-home-btn">
           <FaArrowLeft className="me-2" />
           Home
         </Button>
       </Link>
-      <h1>ADD EMPLOYEE DATA</h1>
+      {/* <h1>ADD EMPLOYEE DATA</h1> */}
       <EmployeeForm
         employee={employee}
         setEmployee={setEmployee}
@@ -43,6 +44,7 @@ const Page = () => {
         mode="add"
         errors={errors}
       />
+      </div>
     </>
   );
 };
