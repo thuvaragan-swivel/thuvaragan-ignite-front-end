@@ -1,9 +1,4 @@
-// utils/employeeUtils.js
-
-// import { toast } from 'react-toastify';
-import { fetchData } from './fetchApiUtils';
-
-// utils/employeeUtils.js
+import { fetchData } from "./fetchApiUtils";
 
 export const handleApiError = (error) => {
   let errorMessage;
@@ -14,13 +9,13 @@ export const handleApiError = (error) => {
     errorMessage = { general: "An unexpected error occurred" };
   }
 
-  if (typeof errorMessage === 'string') {
+  if (typeof errorMessage === "string") {
     // Return string error messages
     return { general: errorMessage }; // Return as a general error
-  } else if (typeof errorMessage === 'number') {
+  } else if (typeof errorMessage === "number") {
     // Return number error messages
     return { general: errorMessage.toString() }; // Return as a general error
-  } else if (typeof errorMessage === 'object') {
+  } else if (typeof errorMessage === "object") {
     // Return field-specific errors
     return errorMessage; // Return as field-specific errors
   } else {
@@ -28,8 +23,6 @@ export const handleApiError = (error) => {
     return { general: "An error occurred" };
   }
 };
-
-
 
 // Function to format employee data
 export const formatEmployeeData = (employee) => {

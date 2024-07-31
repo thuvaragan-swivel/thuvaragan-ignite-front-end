@@ -1,16 +1,23 @@
-// src/app/redux/store.js
-
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import employeeReducer from './employeeSlice';
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import storage from './storage'; // Import the custom storage
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import employeeReducer from "./employeeSlice";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "./storage"; // Import the custom storage
 
 const rootReducer = combineReducers({
   employee: employeeReducer,
 });
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 

@@ -1,6 +1,5 @@
 "use client";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
@@ -8,21 +7,26 @@ import { fetchData } from "@/app/utils/fetchApiUtils";
 import CustomNavbar from "../../components/CustomNavbar.jsx";
 import EmployeeTable from "../../components/EmployeeTable.jsx";
 import EmployeeGrid from "../../components/EmployeeGrid.jsx";
-import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } from "react-icons/fa";
-import { useSelector, useDispatch } from 'react-redux';
-import { setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
-import { toast } from 'react-toastify';
+import {
+  FaPlusCircle,
+  FaArrowLeft,
+  FaArrowRight,
+  FaTrashAlt,
+  FaTimesCircle,
+} from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearch, setSort, setPagination } from "@/app/redux/employeeSlice";
+import { toast } from "react-toastify";
 import { API_SERVER_URL } from "@/app/utils/apiServerUrl.js";
-
-
 
 const Page = () => {
   const dispatch = useDispatch();
-  const { view, search, sort, pagination } = useSelector((state) => state.employee);
+  const { view, search, sort, pagination } = useSelector(
+    (state) => state.employee
+  );
   const [employees, setEmployees] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
-
 
   const [hasInitialError, setHasInitialError] = useState(false);
   const [hasErrorOccurred, setHasErrorOccurred] = useState(false);
@@ -40,11 +44,13 @@ const Page = () => {
       const data = await fetchData(`${API_SERVER_URL}?${queryParams}`);
       if (data && Array.isArray(data.data)) {
         setEmployees(data.data);
-        dispatch(setPagination({
-          currentPage: data.pagination.currentPage,
-          pageSize: data.pagination.pageSize,
-          totalPages: data.pagination.totalPages,
-        }));
+        dispatch(
+          setPagination({
+            currentPage: data.pagination.currentPage,
+            pageSize: data.pagination.pageSize,
+            totalPages: data.pagination.totalPages,
+          })
+        );
         setHasErrorOccurred(false);
         if (hasInitialError) {
           setHasInitialError(false);
@@ -56,9 +62,10 @@ const Page = () => {
         }
       }
     } catch (error) {
-      console.error("Error fetching employees:", error);
       if (!hasInitialError) {
-        toast.error("Error Fetching the Employees. \nPlease Check your API Connection.");
+        toast.error(
+          "Error Fetching the Employees. \nPlease Check your API Connection."
+        );
         setHasInitialError(true);
       }
       setHasErrorOccurred(true);
@@ -68,7 +75,10 @@ const Page = () => {
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
-        const response = await fetchData(`${API_SERVER_URL}/${employeeToDelete.employeeId}`, "DELETE");
+        const response = await fetchData(
+          `${API_SERVER_URL}/${employeeToDelete.employeeId}`,
+          "DELETE"
+        );
         if (response && response.message) {
           toast.success(response.message);
         } else {
@@ -77,12 +87,10 @@ const Page = () => {
         getEmployeeList();
         handleCloseModal();
       } catch (error) {
-        console.error("Error Deleting Employee:", error);
         toast.error("An error occurred while Deleting the Employee!");
       }
     }
   };
-  
 
   const handleShowModal = (employee) => {
     setEmployeeToDelete(employee);
@@ -104,45 +112,49 @@ const Page = () => {
 
       {/* <h1>Employee List</h1> */}
       <div className="add-search-wrapper">
-      <Link href="/employee/add" passHref className="add-employee-link">
-        <Button className="mb-3 add-employee-btn">
-          <FaPlusCircle className="me-2" />
-          Add New Employee
-        </Button>
-      </Link>
+        <Link href="/employee/add" passHref className="add-employee-link">
+          <Button className="mb-3 add-employee-btn">
+            <FaPlusCircle className="me-2" />
+            Add New Employee
+          </Button>
+        </Link>
 
-<div className="search-sort-container mb-3">
-{/* Search Box */}
-<Form.Control
-        type="text"
-        placeholder="Search by First Name, Last Name, or Email"
-        value={search}
-        onChange={(e) => dispatch(setSearch(e.target.value))}
-        className="mb-3"
-      />
+        <div className="search-sort-container mb-3">
+          {/* Search Box */}
+          <Form.Control
+            type="text"
+            placeholder="Search by First Name, Last Name, or Email"
+            value={search}
+            onChange={(e) => dispatch(setSearch(e.target.value))}
+            className="mb-3"
+          />
 
-      {/* Sort Dropdown */}
-      <Form.Select
-        value={`${sort.field}-${sort.order}`}
-        onChange={(e) => {
-          const [field, order] = e.target.value.split('-');
-          dispatch(setSort({ field, order }));
-        }}
-        className="mb-3"
-      >
-        <option value="" hidden>Sort by</option>
-        <option value="firstName-asc">First Name (Asc)</option>
-        <option value="firstName-desc">First Name (Desc)</option>
-        <option value="createdAt-asc">Created At (Asc)</option>
-        <option value="createdAt-desc">Created At (Desc)</option>
-      </Form.Select>
-</div>
-</div>
-      
+          {/* Sort Dropdown */}
+          <Form.Select
+            value={`${sort.field}-${sort.order}`}
+            onChange={(e) => {
+              const [field, order] = e.target.value.split("-");
+              dispatch(setSort({ field, order }));
+            }}
+            className="mb-3"
+          >
+            <option value="" hidden>
+              Sort by
+            </option>
+            <option value="firstName-asc">First Name (Asc)</option>
+            <option value="firstName-desc">First Name (Desc)</option>
+            <option value="createdAt-asc">Created At (Asc)</option>
+            <option value="createdAt-desc">Created At (Desc)</option>
+          </Form.Select>
+        </div>
+      </div>
 
       {/* Employee List */}
-      {view === 'table' ? (
-        <EmployeeTable employees={employees} handleShowModal={handleShowModal} />
+      {view === "table" ? (
+        <EmployeeTable
+          employees={employees}
+          handleShowModal={handleShowModal}
+        />
       ) : (
         <EmployeeGrid employees={employees} handleShowModal={handleShowModal} />
       )}
@@ -151,15 +163,31 @@ const Page = () => {
       <div className="d-flex justify-content-between pagination-controls">
         <Button
           disabled={pagination.currentPage === 1}
-          onClick={() => dispatch(setPagination({ ...pagination, currentPage: pagination.currentPage - 1 }))}
+          onClick={() =>
+            dispatch(
+              setPagination({
+                ...pagination,
+                currentPage: pagination.currentPage - 1,
+              })
+            )
+          }
         >
           <FaArrowLeft className="me-2" />
           Previous
         </Button>
-        <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
+        <span>
+          Page {pagination.currentPage} of {pagination.totalPages}
+        </span>
         <Button
           disabled={pagination.currentPage === pagination.totalPages}
-          onClick={() => dispatch(setPagination({ ...pagination, currentPage: pagination.currentPage + 1 }))}
+          onClick={() =>
+            dispatch(
+              setPagination({
+                ...pagination,
+                currentPage: pagination.currentPage + 1,
+              })
+            )
+          }
         >
           Next
           <FaArrowRight className="ms-2" />
@@ -172,10 +200,16 @@ const Page = () => {
           <Modal.Title>Confirm Delete Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are you sure you want to delete the employee <strong>{employeeToDelete ? `${employeeToDelete.firstName} ${employeeToDelete.lastName}` : ''}</strong> from the system?
+          Are you sure you want to delete the employee{" "}
+          <strong>
+            {employeeToDelete
+              ? `${employeeToDelete.firstName} ${employeeToDelete.lastName}`
+              : ""}
+          </strong>{" "}
+          from the system?
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="danger" onClick={handleDelete}>
+          <Button variant="danger" onClick={handleDelete}>
             <FaTrashAlt className="me-2" />
             Confirm, Delete
           </Button>
@@ -183,7 +217,6 @@ const Page = () => {
             <FaTimesCircle className="me-2" />
             Cancel
           </Button>
-          
         </Modal.Footer>
       </Modal>
     </div>

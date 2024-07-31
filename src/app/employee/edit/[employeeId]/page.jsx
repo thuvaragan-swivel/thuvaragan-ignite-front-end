@@ -1,13 +1,10 @@
-// pages/editEmployee.js
 "use client";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { useParams } from "next/navigation";
 import EmployeeForm from "@/app/components/EmployeeForm";
-import useEmployeeForm from '@/app/hooks/useEmployeeForm';
+import useEmployeeForm from "@/app/hooks/useEmployeeForm";
 import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
-
 
 const Page = () => {
   const { employeeId } = useParams();
@@ -21,10 +18,14 @@ const Page = () => {
     employeeId: "",
   };
 
-  const { employee, setEmployee, errors, submitForm } = useEmployeeForm(initialEmployee, 'edit', employeeId);
+  const { employee, setEmployee, errors, submitForm } = useEmployeeForm(
+    initialEmployee,
+    "edit",
+    employeeId
+  );
 
   const updateEmployeeData = async () => {
-    await submitForm(`${API_SERVER_URL}/${employeeId}`, 'PUT');
+    await submitForm(`${API_SERVER_URL}/${employeeId}`, "PUT");
   };
 
   return (

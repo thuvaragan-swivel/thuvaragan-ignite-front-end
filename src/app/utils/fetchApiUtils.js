@@ -1,4 +1,3 @@
-
 export const fetchData = async (url, method = "GET", body = null) => {
   const options = {
     method,

@@ -1,11 +1,9 @@
-// src/app/redux/employeeSlice.js
-
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  view: 'table', // Default view
-  search: '',
-  sort: { field: '', order: '' },
+  view: "table", // Default view
+  search: "",
+  sort: { field: "", order: "" },
   pagination: {
     currentPage: 1,
     pageSize: 12,
@@ -14,14 +12,14 @@ const initialState = {
 };
 
 const employeeSlice = createSlice({
-  name: 'employee',
+  name: "employee",
   initialState,
   reducers: {
     setView: (state, action) => {
       state.view = action.payload;
     },
     resetView: (state) => {
-      state.view = state.view === 'table' ? 'grid' : 'table';
+      state.view = state.view === "table" ? "grid" : "table";
     },
     setSearch: (state, action) => {
       state.search = action.payload;
@@ -37,5 +35,6 @@ const employeeSlice = createSlice({
   },
 });
 
-export const { setView, resetView, setSearch, setSort, setPagination } = employeeSlice.actions;
+export const { setView, resetView, setSearch, setSort, setPagination } =
+  employeeSlice.actions;
 export default employeeSlice.reducer;
