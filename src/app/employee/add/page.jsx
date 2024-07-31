@@ -1,17 +1,15 @@
-
-
 // pages/addEmployee.js
 "use client";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import EmployeeForm from "@/app/components/EmployeeForm";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import useEmployeeForm from '@/app/hooks/useEmployeeForm';
+import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Page = () => {
   const initialEmployee = {
@@ -26,7 +24,7 @@ const Page = () => {
   const { employee, setEmployee, errors, submitForm } = useEmployeeForm(initialEmployee, 'add');
 
   const addEmployeeDetail = async () => {
-    await submitForm(SERVER_URL, "POST");
+    await submitForm(API_SERVER_URL, 'POST');
   };
 
   return (

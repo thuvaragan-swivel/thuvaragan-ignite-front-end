@@ -1,17 +1,30 @@
 // hooks/useEmployeeForm.js
-import { useState } from "react";
-import {
-  handleApiError,
-  formatEmployeeData,
-  performApiRequest,
-} from "@/app/utils/employeeUtils";
+import { useState, useEffect } from "react";
+import { handleApiError, formatEmployeeData, performApiRequest } from "@/app/utils/employeeUtils";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { API_SERVER_URL } from "../utils/apiServerUrl";
 
-const useEmployeeForm = (initialEmployee, mode) => {
+const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
   const [employee, setEmployee] = useState(initialEmployee);
   const [errors, setErrors] = useState({});
   const router = useRouter();
+
+  useEffect(() => {
+    if (mode === "edit" && employeeId) {
+      const fetchEmployeeData = async () => {
+        try {
+          const data = await performApiRequest(`${API_SERVER_URL}/${employeeId}`, "GET");
+          setEmployee(data);
+        } catch (error) {
+          const errorMessages = handleApiError(error);
+          setErrors(errorMessages);
+        }
+      };
+
+      fetchEmployeeData();
+    }
+  }, [employeeId, mode]);
 
   const submitForm = async (url, method) => {
     const formattedEmployee = formatEmployeeData(employee);

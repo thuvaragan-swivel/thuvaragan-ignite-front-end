@@ -1,6 +1,6 @@
 "use client";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
@@ -12,9 +12,9 @@ import { FaPlusCircle, FaArrowLeft, FaArrowRight, FaTrashAlt, FaTimesCircle } fr
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearch, setSort, setPagination } from '@/app/redux/employeeSlice';
 import { toast } from 'react-toastify';
+import { API_SERVER_URL } from "@/app/utils/apiServerUrl.js";
 
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Page = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,10 @@ const Page = () => {
   const [employees, setEmployees] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
+
+
+  const [hasInitialError, setHasInitialError] = useState(false);
+  const [hasErrorOccurred, setHasErrorOccurred] = useState(false);
 
   const getEmployeeList = async () => {
     const queryParams = new URLSearchParams({
@@ -33,7 +37,7 @@ const Page = () => {
     }).toString();
 
     try {
-      const data = await fetchData(`${SERVER_URL}?${queryParams}`);
+      const data = await fetchData(`${API_SERVER_URL}?${queryParams}`);
       if (data && Array.isArray(data.data)) {
         setEmployees(data.data);
         dispatch(setPagination({
@@ -41,16 +45,30 @@ const Page = () => {
           pageSize: data.pagination.pageSize,
           totalPages: data.pagination.totalPages,
         }));
+        setHasErrorOccurred(false);
+        if (hasInitialError) {
+          setHasInitialError(false);
+        }
+      } else {
+        if (!hasErrorOccurred) {
+          toast.error("Employee Data Unavailable.");
+          setHasErrorOccurred(true);
+        }
       }
     } catch (error) {
       console.error("Error fetching employees:", error);
+      if (!hasInitialError) {
+        toast.error("Error Fetching the Employees. \nPlease Check your API Connection.");
+        setHasInitialError(true);
+      }
+      setHasErrorOccurred(true);
     }
   };
 
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
-        const response = await fetchData(`${SERVER_URL}/${employeeToDelete.employeeId}`, "DELETE");
+        const response = await fetchData(`${API_SERVER_URL}/${employeeToDelete.employeeId}`, "DELETE");
         if (response && response.message) {
           toast.success(response.message);
         } else {
