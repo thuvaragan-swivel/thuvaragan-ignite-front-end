@@ -1,5 +1,3 @@
-"use client";
-
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import employeeReducer from "./employeeSlice";
 import {
