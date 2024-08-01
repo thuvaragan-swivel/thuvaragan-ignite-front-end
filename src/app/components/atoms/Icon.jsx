@@ -1,6 +1,17 @@
 "use client";
+
 import React from "react";
-import { FaPlusCircle, FaEdit, FaTimesCircle, FaTrashAlt, FaArrowLeft, FaArrowRight, FaTable, FaTh, FaList } from "react-icons/fa";
+import {
+  FaPlusCircle,
+  FaEdit,
+  FaTimesCircle,
+  FaTrashAlt,
+  FaArrowLeft,
+  FaArrowRight,
+  FaTable,
+  FaTh,
+  FaList,
+} from "react-icons/fa";
 
 const Icon = ({ name, className }) => {
   const icons = {

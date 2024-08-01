@@ -3,7 +3,18 @@
 import React from "react";
 import EmployeeFormControl from "@/app/components/atoms/EmployeeFormControl";
 
-const EmployeeFormGroup = ({ controlId, label, type, placeholder, value, onChange, isInvalid, feedback, as, options }) => {
+const EmployeeFormGroup = ({
+  controlId,
+  label,
+  type,
+  placeholder,
+  value,
+  onChange,
+  isInvalid,
+  feedback,
+  as,
+  options,
+}) => {
   return (
     <EmployeeFormControl
       controlId={controlId}

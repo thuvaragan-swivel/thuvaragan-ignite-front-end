@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import { Form } from "react-bootstrap";
 
 const SearchBox = ({ type, placeholder, value, onChange, className }) => {
   return (

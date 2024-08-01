@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import { Form } from "react-bootstrap";
 
 const SortDropdown = ({ value, onChange, options, className }) => {
   return (
@@ -10,7 +10,7 @@ const SortDropdown = ({ value, onChange, options, className }) => {
         <option
           key={option.value}
           value={option.value}
-          style={{ display: option.value === '' ? 'none' : 'block' }}
+          style={{ display: option.value === "" ? "none" : "block" }}
         >
           {option.label}
         </option>

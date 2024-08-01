@@ -1,16 +1,16 @@
 "use client";
 
-import React from 'react';
-import SearchBox from '@/app/components/atoms/SearchBox';
-import SortDropdown from '@/app/components/atoms/SortDropdown';
+import React from "react";
+import SearchBox from "@/app/components/atoms/SearchBox";
+import SortDropdown from "@/app/components/atoms/SortDropdown";
 
 const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
   const sortOptions = [
-    { value: '', label: 'Sort by' },
-    { value: 'firstName-asc', label: 'First Name (Asc)' },
-    { value: 'firstName-desc', label: 'First Name (Desc)' },
-    { value: 'createdAt-asc', label: 'Created At (Asc)' },
-    { value: 'createdAt-desc', label: 'Created At (Desc)' },
+    { value: "", label: "Sort by" },
+    { value: "firstName-asc", label: "First Name (Asc)" },
+    { value: "firstName-desc", label: "First Name (Desc)" },
+    { value: "createdAt-asc", label: "Created At (Asc)" },
+    { value: "createdAt-desc", label: "Created At (Desc)" },
   ];
 
   return (

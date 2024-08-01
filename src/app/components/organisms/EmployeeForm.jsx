@@ -1,6 +1,5 @@
-
-
 "use client";
+
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useRouter } from "next/navigation";
@@ -77,9 +76,7 @@ const EmployeeForm = ({
           label="Gender"
           as="select"
           value={employee.gender}
-          onChange={(e) =>
-            setEmployee({ ...employee, gender: e.target.value })
-          }
+          onChange={(e) => setEmployee({ ...employee, gender: e.target.value })}
           isInvalid={errors.gender}
           feedback={errors.gender}
           options={[
@@ -100,11 +97,21 @@ const EmployeeForm = ({
           isInvalid={errors.employeeId}
           feedback={errors.employeeId}
         />
-        <Button onClick={handleSubmit} variant="primary" type="button" className="mt-3 submit-btn">
+        <Button
+          onClick={handleSubmit}
+          variant="primary"
+          type="button"
+          className="mt-3 submit-btn"
+        >
           <Icon name={mode === "add" ? "add" : "edit"} className="me-2" />
           {mode === "add" ? "Add Employee" : "Update Employee"}
         </Button>
-        <Button onClick={handleCancel} variant="secondary" type="button" className="mt-3 cancel-btn ms-2">
+        <Button
+          onClick={handleCancel}
+          variant="secondary"
+          type="button"
+          className="mt-3 cancel-btn ms-2"
+        >
           <Icon name="cancel" className="me-2" />
           Cancel
         </Button>

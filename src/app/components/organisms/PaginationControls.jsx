@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -30,10 +29,7 @@ const PaginationControls = ({ pagination }) => {
 
   return (
     <div className="d-flex justify-content-between pagination-controls">
-      <Button
-        disabled={pagination.currentPage === 1}
-        onClick={handlePrevious}
-      >
+      <Button disabled={pagination.currentPage === 1} onClick={handlePrevious}>
         <Icon name="arrowLeft" className="me-2" />
         Previous
       </Button>

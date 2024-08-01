@@ -3,7 +3,18 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const EmployeeFormControl = ({ controlId, label, type, placeholder, value, onChange, isInvalid, feedback, as = "input", options = [] }) => {
+const EmployeeFormControl = ({
+  controlId,
+  label,
+  type,
+  placeholder,
+  value,
+  onChange,
+  isInvalid,
+  feedback,
+  as = "input",
+  options = [],
+}) => {
   return (
     <Form.Group controlId={controlId} className="mt-3">
       <Form.Label>{label}</Form.Label>
@@ -33,9 +44,7 @@ const EmployeeFormControl = ({ controlId, label, type, placeholder, value, onCha
           ))}
         </Form.Control>
       )}
-      <Form.Control.Feedback type="invalid">
-        {feedback}
-      </Form.Control.Feedback>
+      <Form.Control.Feedback type="invalid">{feedback}</Form.Control.Feedback>
     </Form.Group>
   );
 };
