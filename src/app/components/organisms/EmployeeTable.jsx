@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import { Table, Button, Image } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Link from "next/link";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import GenderImage from "@/app/components/atoms/GenderImage";
+import Button from "@/app/components/atoms/Button";
+import Icon from "@/app/components/atoms/Icon";
 
 const getPhotoUrl = (gender) => {
   return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
@@ -38,7 +40,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
             return (
               <tr key={index}>
                 <td>
-                  <Image
+                  <GenderImage
                     src={getPhotoUrl(gender)}
                     alt={`${gender} icon`}
                     className="employee-photo"
@@ -53,7 +55,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
                 <td>
                   <Link href={`edit/${employeeId}`} passHref>
                     <Button variant="outline-primary" className="me-2">
-                      <FaEdit className="me-2" />
+                      <Icon name="edit" className="me-2" />
                       Edit
                     </Button>
                   </Link>
@@ -62,7 +64,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
                     onClick={() => handleShowModal(item)}
                     className="me-2"
                   >
-                    <FaTrashAlt className="me-2" />
+                    <Icon name="trash" className="me-2" />
                     Delete
                   </Button>
                 </td>

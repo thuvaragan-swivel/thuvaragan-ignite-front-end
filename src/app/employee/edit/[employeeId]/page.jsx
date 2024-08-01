@@ -2,9 +2,10 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import EmployeeForm from "@/app/components/EmployeeForm";
 import useEmployeeForm from "@/app/hooks/useEmployeeForm";
 import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
+import EmployeeForm from "@/app/components/organisms/EmployeeForm";
+
 
 const Page = () => {
   const { employeeId } = useParams();

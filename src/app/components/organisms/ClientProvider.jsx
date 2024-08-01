@@ -3,9 +3,9 @@
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "@/app/redux/store";
-import ToastProvider from "./ToastProvider";
+import ToastProvider from "@/app/components/organisms/ToastProvider";
 
-const ClientProviders = ({ children }) => {
+const ClientProvider = ({ children }) => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -15,4 +15,4 @@ const ClientProviders = ({ children }) => {
   );
 };
 
-export default ClientProviders;
+export default ClientProvider;

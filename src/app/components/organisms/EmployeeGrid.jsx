@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import { Card, Button, Row, Col, Image } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import Link from "next/link";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import GenderImage from "@/app/components/atoms/GenderImage";
+import Button from "@/app/components/atoms/Button";
+import Icon from "@/app/components/atoms/Icon";
 
 const getGenderPhoto = (gender) => {
   return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
@@ -41,7 +43,7 @@ const EmployeeGrid = ({ employees, handleShowModal }) => {
                     </Card.Text>
                     <Link href={`edit/${employeeId}`} passHref>
                       <Button variant="outline-primary" className="me-2">
-                        <FaEdit className="me-2" />
+                        <Icon name="edit" className="me-2" />
                         Edit
                       </Button>
                     </Link>
@@ -50,11 +52,11 @@ const EmployeeGrid = ({ employees, handleShowModal }) => {
                       onClick={() => handleShowModal(item)}
                       className="me-2"
                     >
-                      <FaTrashAlt className="me-2" />
+                      <Icon name="trash" className="me-2" />
                       Delete
                     </Button>
                   </div>
-                  <Image
+                  <GenderImage
                     src={getGenderPhoto(gender)}
                     alt={`${gender} icon`}
                     className="employee-photo"

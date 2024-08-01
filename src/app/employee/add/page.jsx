@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import EmployeeForm from "@/app/components/EmployeeForm";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa";
-import { Button } from "react-bootstrap";
 import useEmployeeForm from "@/app/hooks/useEmployeeForm";
 import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
+import EmployeeForm from "@/app/components/organisms/EmployeeForm";
+import Button from "@/app/components/atoms/Button";
+import Icon from "@/app/components/atoms/Icon";
 
 const Page = () => {
   const initialEmployee = {
@@ -32,7 +32,7 @@ const Page = () => {
       <div className="add-container">
         <Link href="/" passHref>
           <Button variant="secondary" className="mt-3 go-home-btn">
-            <FaArrowLeft className="me-2" />
+            <Icon name="arrowLeft" className="me-2" />
             Home
           </Button>
         </Link>

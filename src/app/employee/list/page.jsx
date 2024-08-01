@@ -2,18 +2,13 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
 import { fetchData } from "@/app/utils/fetchApiUtils";
-import CustomNavbar from "../../components/CustomNavbar.jsx";
-import EmployeeTable from "../../components/EmployeeTable.jsx";
-import EmployeeGrid from "../../components/EmployeeGrid.jsx";
-import {
-  FaPlusCircle,
-  FaArrowLeft,
-  FaArrowRight,
-  FaTrashAlt,
-  FaTimesCircle,
-} from "react-icons/fa";
+import CustomNavbar from "@/app/components/organisms/CustomNavbar";
+import EmployeeTable from "@/app/components/organisms/EmployeeTable";
+import EmployeeGrid from "@/app/components/organisms/EmployeeGrid";
+import ConfirmationModal from "@/app/components/organisms/ConfirmationModal";
+import PaginationControls from "@/app/components/organisms/PaginationControls";
+import AddSearchSortWrapper from "@/app/components/organisms/AddSearchSortWrapper";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch, setSort, setPagination } from "@/app/redux/employeeSlice";
 import { toast } from "react-toastify";
@@ -111,43 +106,18 @@ const Page = () => {
       <CustomNavbar />
 
       {/* <h1>Employee List</h1> */}
-      <div className="add-search-wrapper">
-        <Link href="/employee/add" passHref className="add-employee-link">
-          <Button className="mb-3 add-employee-btn">
-            <FaPlusCircle className="me-2" />
-            Add New Employee
-          </Button>
-        </Link>
-
-        <div className="search-sort-container mb-3">
-          {/* Search Box */}
-          <Form.Control
-            type="text"
-            placeholder="Search by First Name, Last Name, or Email"
-            value={search}
-            onChange={(e) => dispatch(setSearch(e.target.value))}
-            className="mb-3"
-          />
-
-          {/* Sort Dropdown */}
-          <Form.Select
-            value={`${sort.field}-${sort.order}`}
-            onChange={(e) => {
-              const [field, order] = e.target.value.split("-");
-              dispatch(setSort({ field, order }));
-            }}
-            className="mb-3"
-          >
-            <option value="" hidden>
-              Sort by
-            </option>
-            <option value="firstName-asc">First Name (Asc)</option>
-            <option value="firstName-desc">First Name (Desc)</option>
-            <option value="createdAt-asc">Created At (Asc)</option>
-            <option value="createdAt-desc">Created At (Desc)</option>
-          </Form.Select>
-        </div>
-      </div>
+      
+      {/* Add New Employee, Search Field, Sort Dropdown*/}
+      <AddSearchSortWrapper
+        search={search}
+        onSearchChange={(e) => dispatch(setSearch(e.target.value))}
+        sort={sort}
+        onSortChange={(e) => {
+          const [field, order] = e.target.value.split("-");
+          dispatch(setSort({ field, order }));
+        }}
+        onAddEmployeeClick={() => {}}
+      />
 
       {/* Employee List */}
       {view === "table" ? (
@@ -160,65 +130,15 @@ const Page = () => {
       )}
 
       {/* Pagination Controls */}
-      <div className="d-flex justify-content-between pagination-controls">
-        <Button
-          disabled={pagination.currentPage === 1}
-          onClick={() =>
-            dispatch(
-              setPagination({
-                ...pagination,
-                currentPage: pagination.currentPage - 1,
-              })
-            )
-          }
-        >
-          <FaArrowLeft className="me-2" />
-          Previous
-        </Button>
-        <span>
-          Page {pagination.currentPage} of {pagination.totalPages}
-        </span>
-        <Button
-          disabled={pagination.currentPage === pagination.totalPages}
-          onClick={() =>
-            dispatch(
-              setPagination({
-                ...pagination,
-                currentPage: pagination.currentPage + 1,
-              })
-            )
-          }
-        >
-          Next
-          <FaArrowRight className="ms-2" />
-        </Button>
-      </div>
+      <PaginationControls pagination={pagination} />
 
       {/* Confirmation Modal */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Delete Employee</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Are you sure you want to delete the employee{" "}
-          <strong>
-            {employeeToDelete
-              ? `${employeeToDelete.firstName} ${employeeToDelete.lastName}`
-              : ""}
-          </strong>{" "}
-          from the system?
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={handleDelete}>
-            <FaTrashAlt className="me-2" />
-            Confirm, Delete
-          </Button>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            <FaTimesCircle className="me-2" />
-            Cancel
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ConfirmationModal
+  show={showModal}
+  handleClose={handleCloseModal}
+  handleConfirm={handleDelete}
+  employee={employeeToDelete}
+/>
     </div>
   );
 };

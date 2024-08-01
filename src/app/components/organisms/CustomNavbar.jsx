@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { FaTable, FaTh, FaList } from "react-icons/fa";
 import { setView } from "@/app/redux/employeeSlice";
+import Icon from "@/app/components/atoms/Icon";
 
 const CustomNavbar = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const CustomNavbar = () => {
           <NavDropdown
             title={
               <>
-                <FaList className="me-2" />
+                <Icon name="view" className="me-2" />
                 View
               </>
             }
@@ -36,14 +36,14 @@ const CustomNavbar = () => {
               onClick={() => dispatch(setView("table"))}
               active={view === "table"}
             >
-              <FaTable className="me-2" />
+              <Icon name="table" className="me-2" />
               Table
             </NavDropdown.Item>
             <NavDropdown.Item
               onClick={() => dispatch(setView("grid"))}
               active={view === "grid"}
             >
-              <FaTh className="me-2" />
+              <Icon name="grid" className="me-2" />
               Grid
             </NavDropdown.Item>
           </NavDropdown>
