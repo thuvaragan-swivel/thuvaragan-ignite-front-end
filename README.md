@@ -51,7 +51,7 @@ You can access the application locally at http://localhost:3000 or http://localh
 
 ## Features
 
-* **Add New Employee**: Allows adding a new employee with validation.
+* **Add New Employee**: Allows adding a new employee.
 * **Update Employee**: Enables updating existing employee details.
 * **Delete Employee**: Provides an option to delete an employee with confirmation.
 * **Sort and Search Employees**:  
