@@ -3,6 +3,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// ToastProvider component to provide toast notifications.
 const ToastProvider = ({ children }) => {
   return (
     <>

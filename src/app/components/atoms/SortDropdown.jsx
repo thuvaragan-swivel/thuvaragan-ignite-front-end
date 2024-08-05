@@ -3,6 +3,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
+// SortDropdown component for sorting options.
 const SortDropdown = ({ value, onChange, options, className }) => {
   return (
     <Form.Select value={value} onChange={onChange} className={className}>

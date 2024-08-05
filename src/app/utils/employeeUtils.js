@@ -1,30 +1,28 @@
 import { fetchData } from "./fetchApiUtils";
 
+// Function to handle API errors and parse error messages.
 export const handleApiError = (error) => {
   let errorMessage;
 
   try {
-    errorMessage = JSON.parse(error.message);
+    errorMessage = JSON.parse(error.message); // Attempt to parse the error message as JSON.
   } catch (e) {
-    errorMessage = { general: "An unexpected error occurred" };
+    errorMessage = { general: "An unexpected error occurred" }; // Fallback to a general error message if JSON parsing fails.
   }
 
+  // Determining the type of errorMessage and return appropriate error object.
   if (typeof errorMessage === "string") {
-    // Return string error messages
-    return { general: errorMessage }; // Return as a general error
+    return { general: errorMessage };
   } else if (typeof errorMessage === "number") {
-    // Return number error messages
-    return { general: errorMessage.toString() }; // Return as a general error
+    return { general: errorMessage.toString() };
   } else if (typeof errorMessage === "object") {
-    // Return field-specific errors
-    return errorMessage; // Return as field-specific errors
+    return errorMessage;
   } else {
-    // Return a general error for unexpected cases
     return { general: "An error occurred" };
   }
 };
 
-// Function to format employee data
+// Function to format employee data.
 export const formatEmployeeData = (employee) => {
   return {
     ...employee,
@@ -32,7 +30,7 @@ export const formatEmployeeData = (employee) => {
   };
 };
 
-// Function to perform the API request
+// Function to perform the API request.
 export const performApiRequest = async (url, method, employee) => {
   const data = await fetchData(url, method, employee);
   return data;

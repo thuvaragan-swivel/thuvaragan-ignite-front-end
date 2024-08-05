@@ -10,11 +10,13 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { API_SERVER_URL } from "../utils/apiServerUrl";
 
+// Custom hook to manage employee form state and submission.
 const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
   const [employee, setEmployee] = useState(initialEmployee);
   const [errors, setErrors] = useState({});
   const router = useRouter();
 
+  // Fetch employee data when in edit mode and employeeId is provided.
   useEffect(() => {
     if (mode === "edit" && employeeId) {
       const fetchEmployeeData = async () => {
@@ -34,6 +36,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
     }
   }, [employeeId, mode]);
 
+  // Function to handle form submission.
   const submitForm = async (url, method) => {
     const formattedEmployee = formatEmployeeData(employee);
 
@@ -48,6 +51,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
 
       toast.success(successMessage);
 
+      // Redirect or reset form based on mode.
       if (mode === "add") {
         setEmployee(initialEmployee);
       } else {

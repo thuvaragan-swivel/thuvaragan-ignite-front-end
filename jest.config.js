@@ -1,5 +1,8 @@
 // jest.config.js
 module.exports = {
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  };
-  
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': '@swc/jest',
+  },
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  testEnvironment: 'jsdom',
+};

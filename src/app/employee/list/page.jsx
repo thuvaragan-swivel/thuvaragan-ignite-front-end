@@ -14,6 +14,7 @@ import { setSearch, setSort, setPagination } from "@/app/redux/employeeSlice";
 import { toast } from "react-toastify";
 import { API_SERVER_URL } from "@/app/utils/apiServerUrl.js";
 
+// Page component for displaying the list of employees.
 const Page = () => {
   const dispatch = useDispatch();
   const { view, search, sort, pagination } = useSelector(
@@ -26,6 +27,7 @@ const Page = () => {
   const [hasInitialError, setHasInitialError] = useState(false);
   const [hasErrorOccurred, setHasErrorOccurred] = useState(false);
 
+  // Function to fetch the employee list from the API.
   const getEmployeeList = async () => {
     const queryParams = new URLSearchParams({
       search,
@@ -67,6 +69,7 @@ const Page = () => {
     }
   };
 
+  // Function to handle employee deletion.
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
@@ -87,16 +90,19 @@ const Page = () => {
     }
   };
 
+  // Function to show the confirmation modal.
   const handleShowModal = (employee) => {
     setEmployeeToDelete(employee);
     setShowModal(true);
   };
 
+  // Function to close the confirmation modal.
   const handleCloseModal = () => {
     setEmployeeToDelete(null);
     setShowModal(false);
   };
 
+  // Fetch employee list whenever search, sort, or pagination changes.
   useEffect(() => {
     getEmployeeList();
   }, [search, sort, pagination.currentPage, pagination.pageSize]);
@@ -105,9 +111,7 @@ const Page = () => {
     <div className="center-container">
       <CustomNavbar />
 
-      {/* <h1>Employee List</h1> */}
-      
-      {/* Add New Employee, Search Field, Sort Dropdown*/}
+      {/* Add New Employee, Search Field, Sort Dropdown */}
       <AddSearchSortWrapper
         search={search}
         onSearchChange={(e) => dispatch(setSearch(e.target.value))}
@@ -134,11 +138,11 @@ const Page = () => {
 
       {/* Confirmation Modal */}
       <ConfirmationModal
-  show={showModal}
-  handleClose={handleCloseModal}
-  handleConfirm={handleDelete}
-  employee={employeeToDelete}
-/>
+        show={showModal}
+        handleClose={handleCloseModal}
+        handleConfirm={handleDelete}
+        employee={employeeToDelete}
+      />
     </div>
   );
 };

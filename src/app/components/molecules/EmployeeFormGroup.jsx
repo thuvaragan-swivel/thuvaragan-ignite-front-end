@@ -3,6 +3,7 @@
 import React from "react";
 import EmployeeFormControl from "@/app/components/atoms/EmployeeFormControl";
 
+// EmployeeFormGroup component that wraps EmployeeFormControl with specific props.
 const EmployeeFormGroup = ({
   controlId,
   label,

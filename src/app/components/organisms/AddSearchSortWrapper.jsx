@@ -6,6 +6,7 @@ import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
 import SearchSortControls from "@/app/components/molecules/SearchSortControls";
 
+// AddSearchSortWrapper component that includes a button to add a new employee along with the search/sort controls.
 const AddSearchSortWrapper = ({
   search,
   onSearchChange,

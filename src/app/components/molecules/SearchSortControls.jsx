@@ -4,6 +4,7 @@ import React from "react";
 import SearchBox from "@/app/components/atoms/SearchBox";
 import SortDropdown from "@/app/components/atoms/SortDropdown";
 
+// SearchSortControls component for rendering search and sort controls.
 const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
   const sortOptions = [
     { value: "", label: "Sort by" },

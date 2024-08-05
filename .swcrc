@@ -1,0 +1,18 @@
+{
+    "jsc": {
+      "parser": {
+        "syntax": "typescript",  // or "ecmascript" if not using TypeScript
+        "decorators": true,
+        "dynamicImport": true
+      },
+      "transform": {
+        "react": {
+          "runtime": "automatic"  // This enables the new JSX transform
+        }
+      }
+    },
+    "module": {
+      "type": "es6"  // Use "commonjs" if you need CommonJS modules
+    }
+  }
+  

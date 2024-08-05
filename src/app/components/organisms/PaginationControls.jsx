@@ -6,6 +6,7 @@ import Icon from "@/app/components/atoms/Icon";
 import { useDispatch } from "react-redux";
 import { setPagination } from "@/app/redux/employeeSlice";
 
+// PaginationControls component for navigating between pages.
 const PaginationControls = ({ pagination }) => {
   const dispatch = useDispatch();
 

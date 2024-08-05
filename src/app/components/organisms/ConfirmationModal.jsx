@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
 
+// ConfirmationModal component for confirming employee deletion.
 const ConfirmationModal = ({ show, handleClose, handleConfirm, employee }) => {
   return (
     <Modal show={show} onHide={handleClose}>
@@ -19,11 +20,19 @@ const ConfirmationModal = ({ show, handleClose, handleConfirm, employee }) => {
         from the system?
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="danger" onClick={handleConfirm}>
+        <Button
+          variant="danger"
+          className="confirm-delete-btn"
+          onClick={handleConfirm}
+        >
           <Icon name="trash" className="me-2" />
           Confirm, Delete
         </Button>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button
+          variant="secondary"
+          className="cancel-delete-btn"
+          onClick={handleClose}
+        >
           <Icon name="times" className="me-2" />
           Cancel
         </Button>

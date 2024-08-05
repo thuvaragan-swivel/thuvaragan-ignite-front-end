@@ -1,5 +1,6 @@
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
+// Creating a noop storage when window is not available (during server-side rendering)
 const createNoopStorage = () => {
   return {
     getItem(_key) {
@@ -14,6 +15,7 @@ const createNoopStorage = () => {
   };
 };
 
+// Using session storage on the client side.
 const storage =
   typeof window !== "undefined"
     ? createWebStorage("session")

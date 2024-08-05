@@ -7,6 +7,7 @@ import Button from "@/app/components/atoms/Button";
 import EmployeeFormGroup from "../molecules/EmployeeFormGroup";
 import Icon from "@/app/components/atoms/Icon";
 
+// EmployeeForm component for adding/editing employee details.
 const EmployeeForm = ({
   employee,
   setEmployee,
@@ -17,7 +18,7 @@ const EmployeeForm = ({
   const router = useRouter();
 
   const handleCancel = () => {
-    router.push("/employee/list"); // Adjust the path as needed
+    router.push("/employee/list");
   };
 
   return (

@@ -3,6 +3,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
+// EmployeeFormControl component for handling different form controls.
 const EmployeeFormControl = ({
   controlId,
   label,

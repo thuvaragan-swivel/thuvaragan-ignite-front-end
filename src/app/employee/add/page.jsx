@@ -8,6 +8,7 @@ import EmployeeForm from "@/app/components/organisms/EmployeeForm";
 import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
 
+// Page component for adding a new employee.
 const Page = () => {
   const initialEmployee = {
     firstName: "",
@@ -18,11 +19,13 @@ const Page = () => {
     employeeId: "",
   };
 
+  // Custom hook to manage employee form state and submission.
   const { employee, setEmployee, errors, submitForm } = useEmployeeForm(
     initialEmployee,
     "add"
   );
 
+  // Function to handle adding employee details.
   const addEmployeeDetail = async () => {
     await submitForm(API_SERVER_URL, "POST");
   };
@@ -36,7 +39,6 @@ const Page = () => {
             Home
           </Button>
         </Link>
-        {/* <h1>ADD EMPLOYEE DATA</h1> */}
         <EmployeeForm
           employee={employee}
           setEmployee={setEmployee}

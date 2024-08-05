@@ -7,10 +7,12 @@ import GenderImage from "@/app/components/atoms/GenderImage";
 import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
 
+// Helper function to get the appropriate gender photo URL.
 const getGenderPhoto = (gender) => {
   return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
 };
 
+// EmployeeGrid component for displaying employees in a grid layout.
 const EmployeeGrid = ({ employees, handleShowModal }) => {
   return (
     <Row className="employee-grid">

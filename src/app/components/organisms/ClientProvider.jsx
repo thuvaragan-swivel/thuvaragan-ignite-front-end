@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "@/app/redux/store";
 import ToastProvider from "@/app/components/organisms/ToastProvider";
 
+// ClientProvider component that wraps children with Redux Provider, PersistGate, and ToastProvider.
 const ClientProvider = ({ children }) => {
   return (
     <Provider store={store}>
