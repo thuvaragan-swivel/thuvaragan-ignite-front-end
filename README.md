@@ -25,6 +25,11 @@ To get started with this project, follow these steps:
     npm install
     ```
 
+4. **Create a `.env.local` file in the root directory and add the necessary environment variables**:
+    ```env
+    NEXT_PUBLIC_API_BASE_URL = http://localhost:8000/api/employee
+    ```
+
 ## Usage
 
 To run the project in development mode, use the following command in your terminal:
