@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Thuvaragan Sabesan - Ignite Assessment (Back-end) - Swivel
 
-## Getting Started
+# Employee Management System
 
-First, run the development server:
+## Project Description
+
+This frontend project is developed using **Next.js** with **JavaScript** and **React**. It integrates seamlessly with the backend, which leverages **Express.js** for the server-side framework and **Node.js** for the runtime environment. The backend uses **MongoDB** as the database and **Mongoose** as the ODM (Object Data Modeling) library. This app is designed for managing employees, providing a user-friendly interface for CRUD operations and more.
+
+## Installation
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-url>
+    ```
+
+2. **Navigate to the project directory**:
+    ```bash
+    cd <repository-directory>
+    ```
+
+3. **Install the required dependencies**:
+    ```bash
+    npm install
+    ```
+
+## Usage
+
+To run the project in development mode, use the following command in your terminal:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the development server.  
+You can access the application locally at http://localhost:3000 or http://localhost:3000/employee/list.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Next.js**: React framework for production
+2. **React.js**: JavaScript library for building user interfaces
+3. **JavaScript**: Programming language
+4. **HTML**: Markup language
+5. **CSS**: Style sheet language
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+* **Add New Employee**: Allows adding a new employee with validation.
+* **Update Employee**: Enables updating existing employee details.
+* **Delete Employee**: Provides an option to delete an employee with confirmation.
+* **Sort and Search Employees**:
++ Sort by first name and creation date (both ascending and descending orders).
++ Search by first name, last name, and email.
+* **Table and Grid Views**: Toggle between table and grid views on the home screen.
+* **Pagination**: Navigate through multiple pages of employee listings.
+* **Form Validations**: Ensures input validations on add and edit employee pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The frontend communicates with the backend APIs to perform CRUD operations and retrieve data. It sends HTTP requests to the backend and processes the responses to update the UI accordingly. This integration allows for seamless interaction between the frontend and backend, ensuring data consistency and real-time updates.
