@@ -49,8 +49,8 @@ You can access the application locally at http://localhost:3000 or http://localh
 * **Add New Employee**: Allows adding a new employee with validation.
 * **Update Employee**: Enables updating existing employee details.
 * **Delete Employee**: Provides an option to delete an employee with confirmation.
-* **Sort and Search Employees**:
-    *Sort by first name and creation date (both ascending and descending orders).
+* **Sort and Search Employees**:  
+    *Sort by first name and creation date (both ascending and descending orders).  
     *Search by first name, last name, and email.
 * **Table and Grid Views**: Toggle between table and grid views on the home screen.
 * **Pagination**: Navigate through multiple pages of employee listings.
