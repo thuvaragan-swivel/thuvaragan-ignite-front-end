@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-  background: linear-gradient(135deg, #e0f2f1, #e3f2fd); /* Light Teal to Light Blue Gradient */
-  color: #004d40; /* Dark Teal for text */
+  background: linear-gradient(135deg, #e0f2f1, #e3f2fd);
+  color: #004d40;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -10,21 +10,21 @@ body {
 /* Custom Navbar */
 .custom-navbar {
   margin-bottom: 20px;
-  background: linear-gradient(90deg, #004d40, #0288d1); /* Dark Teal to Bright Blue Gradient */
-  padding: 0 20px; /* Add padding to the sides */
+  background: linear-gradient(90deg, #004d40, #0288d1);
+  padding: 0 20px;
 }
 
 .custom-navbar .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  flex: 1; /* Allows the brand to take available space */
-  margin: 0 auto; /* Center the brand */
+  flex: 1;
+  margin: 0 auto;
 }
 
 .custom-navbar .navbar-nav {
   margin-left: auto;
-  margin-right: 70px; /* Center the dropdown */
+  margin-right: 70px;
 }
 
 .custom-navbar .nav-link {
@@ -33,11 +33,11 @@ body {
 }
 
 .custom-navbar .nav-link:hover {
-  color: #b3e5fc !important; /* Light Blue */
+  color: #b3e5fc !important;
 }
 
 .custom-navbar .dropdown-menu {
-  background: #0288d1; /* Bright Blue */
+  background: #0288d1;
   border: none;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -49,11 +49,11 @@ body {
 }
 
 .custom-navbar .dropdown-item:hover {
-  background-color: #004d40; /* Dark Teal */
+  background-color: #004d40;
 }
 
 .custom-navbar .dropdown-item.active {
-  background-color: #003d33; /* Even Darker Teal */
+  background-color: #003d33;
 }
 
 /* Centering the form in the page */
@@ -66,34 +66,34 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
 
 .employee-form {
   max-width: 600px;
   width: 100%;
-  background: linear-gradient(135deg, #a5d6a7, #81d4fa); /* Light Green to Light Blue */
+  background: linear-gradient(135deg, #a5d6a7, #81d4fa);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .employee-form .submit-btn {
-  background-color: #0288d1; /* Bright Blue */
+  background-color: #0288d1;
   color: #ffffff;
   border: 2px solid black;
   border-radius: 5px;
   padding: 10px 20px;
-  margin-right: 10px; /* Optional: space between buttons */
+  margin-right: 10px;
 }
 
 .employee-form .submit-btn:hover {
-  background-color: #07a3eb; /* Light Blue */
+  background-color: #07a3eb;
   border: 2px solid black;
 }
 
 .employee-form .cancel-btn {
-  background-color: rgb(97, 109, 124); /* Dark Teal */
+  background-color: rgb(97, 109, 124);
   color: #ffffff;
   border: 2px solid black;
   border-radius: 5px;
@@ -101,7 +101,7 @@ html, body {
 }
 
 .employee-form .cancel-btn:hover {
-  background-color: #8a8f8e; /* Even Darker Teal */
+  background-color: #8a8f8e;
   border: 2px solid black;
 }
 
@@ -115,14 +115,14 @@ html, body {
 /* Employee Grid */
 .employee-grid {
   margin: 20px auto;
-  background: linear-gradient(135deg, #004d40, #0288d1); /* Dark Teal to Bright Blue Gradient */
+  background: linear-gradient(135deg, #004d40, #0288d1);
   padding: 20px;
   border-radius: 8px;
-  max-width: 1200px; /* Adjust max-width as needed */
+  max-width: 1200px;
 }
 
 .employee-grid .employee-card {
-  border: 1px solid #003d33; /* Even Darker Teal */
+  border: 1px solid #003d33;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: #ffffff;
@@ -143,20 +143,20 @@ html, body {
 .employee-table {
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(135deg, #004d40, #0288d1); /* Dark Teal to Bright Blue Gradient */
+  background: linear-gradient(135deg, #004d40, #0288d1);
   border-radius: 8px;
   width: 90%;
-  max-width: 1200px; /* Adjust max-width as needed */
+  max-width: 1200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .employee-table table {
-  width: 100%; /* Full width of the container */
+  width: 100%;
   border-collapse: collapse;
 }
 
 .employee-table th {
-  background: #004d40; /* Dark Teal */
+  background: #004d40;
   color: #ffffff;
   font-weight: bold;
 }
@@ -174,96 +174,96 @@ html, body {
 /* Modal Box */
 .modal-content {
   border-radius: 10px;
-  background: linear-gradient(135deg, #c99257, #a7752b); /* Light Yellow to Orange Gradient */
+  background: linear-gradient(135deg, #c99257, #a7752b);
   border: 2px solid black;
 }
 
 .modal-header {
-  background: none; /* Use the same background as the modal-content */
-  color: #000000; /* Dark Teal */
+  background: none;
+  color: #000000;
   border-bottom: none;
 }
 
 .modal-header .close {
-  color: #000000; /* Dark Teal */
+  color: #000000;
 }
 
 .modal-body {
-  background: none; /* Use the same background as the modal-content */
-  color: #000000; /* Dark Teal */
+  background: none;
+  color: #000000;
 }
 
 .modal-footer {
-  background: none; /* Use the same background as the modal-content */
+  background: none;
 }
 
 .modal-footer .confirm-delete-btn {
-  background-color: #e42d20; /* Red for delete button */
+  background-color: #e42d20;
   border: 1px solid black;
 }
 
 .modal-footer .cancel-delete-btn {
-  background-color: #9e9e9e; /* Grey for cancel button */
+  background-color: #9e9e9e;
   border: 1px solid black;
 }
 
 .modal-footer .confirm-delete-btn:hover {
-  background-color: #a52222; /* Darker Red on hover */
+  background-color: #a52222;
   border: 1px solid black;
 }
 
 .modal-footer .cancel-delete-btn:hover {
-  background-color: #616161; /* Darker Grey on hover */
+  background-color: #616161;
   border: 1px solid black;
 }
 
 
 /* Add Employee Button */
 .add-employee-btn {
-  background: #1e5f82; /* Bright Blue */
+  background: #1e5f82;
   color: #ffffff;
   border: 2px solid black;
   border-radius: 8px;
   font-size: 1rem;
   padding: 10px 20px;
-  margin-bottom: 20px; /* Margin below the button */
+  margin-bottom: 20px;
   display: block;
   align-self: flex-start;
-  text-decoration: none !important; /* Align the button to the start */
+  text-decoration: none !important;
 }
 
 .add-employee-btn:hover {
-  background: #206f93; /* Light Blue */
+  background: #206f93;
   border: 2px solid black;
-  text-decoration: none; /* Ensure text remains not underlined on hover */
+  text-decoration: none;
 }
 
 /* Wrapper for the link to ensure no underline */
 .add-employee-link {
-  text-decoration: none; /* Ensure no underline for link */
+  text-decoration: none;
 }
 
 /* Wrapper for Add Employee Button and Search/Sort Components */
 .add-search-wrapper {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: flex-start; /* Align items to the start (left) */
-  max-width: 800px; /* Center the container */
-  margin: 0 auto; /* Center the container horizontally */
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Search and Sort Box */
 .search-sort-container {
   display: flex;
   gap: 10px;
-  width: 100%; /* Full width of the container */
+  width: 100%;
 }
 
 .search-sort-container .form-control,
 .search-sort-container .form-select {
   flex: 1;
   border-radius: 8px;
-  border: 1px solid #004d40; /* Dark Teal */
+  border: 1px solid #004d40;
   padding: 10px;
 }
 
@@ -273,42 +273,41 @@ html, body {
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  max-width: 800px; /* Center the pagination controls */
-  padding: 0 20px; /* Add padding to move elements inward */
-  padding-bottom: 40px; /* Add padding to the bottom to leave space */
+  max-width: 800px;
+  padding: 0 20px;
+  padding-bottom: 40px;
 }
 
 .pagination-controls .btn {
   border-radius: 8px;
-  background: #0288d1; /* Bright Blue */
+  background: #0288d1;
   color: #ffffff;
-  border: none;
-  margin: 0 5px; /* Add space between buttons */
+  margin: 0 5px;
   padding: 10px 20px;
   border: 2px solid black;
 }
 
 .pagination-controls .btn:hover {
-  background: #1892cb; /* Light Blue */
+  background: #1892cb;
   color: #ffffff;
   border: 2px solid black;
 }
 
 /* Go Home Button */
 .go-home-btn {
-  background-color: #004d40; /* Dark Teal */
+  background-color: #004d40;
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   padding: 10px 20px;
-  margin: 0; /* Remove any extra margin */
-  align-self: start; /* Align the button to the start of the container */
+  margin: 0;
+  align-self: start;
   margin-bottom: -100px;
 }
 
 .go-home-btn:hover {
-  background-color: #003d33; /* Even Darker Teal */
+  background-color: #003d33;
   color: #ffffff;
   text-decoration: none;
 }
@@ -317,6 +316,6 @@ html, body {
 .add-container {
   display: grid;
   grid-template-columns: auto 0.9fr;
-  justify-content: center; /* Center the form and button horizontally */
-  align-items: start; /* Align items to the top of the container */
+  justify-content: center;
+  align-items: start;
 }
