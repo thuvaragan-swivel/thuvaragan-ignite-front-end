@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { fetchData } from "@/app/utils/fetchApiUtils";
 import CustomNavbar from "@/app/components/organisms/CustomNavbar";

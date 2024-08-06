@@ -32,15 +32,13 @@ const Page = () => {
   };
 
   return (
-    <>
-      <EmployeeForm
-        employee={employee}
-        setEmployee={setEmployee}
-        handleSubmit={updateEmployeeData}
-        mode="edit"
-        errors={errors}
-      />
-    </>
+    <EmployeeForm
+      employee={employee}
+      setEmployee={setEmployee}
+      handleSubmit={updateEmployeeData}
+      mode="edit"
+      errors={errors}
+    />
   );
 };
 

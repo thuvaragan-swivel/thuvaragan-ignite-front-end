@@ -31,23 +31,21 @@ const Page = () => {
   };
 
   return (
-    <>
-      <div className="add-container">
-        <Link href="/" passHref>
-          <Button variant="secondary" className="mt-3 go-home-btn">
-            <Icon name="arrowLeft" className="me-2" />
-            Home
-          </Button>
-        </Link>
-        <EmployeeForm
-          employee={employee}
-          setEmployee={setEmployee}
-          handleSubmit={addEmployeeDetail}
-          mode="add"
-          errors={errors}
-        />
-      </div>
-    </>
+    <div className="add-container">
+      <Link href="/" passHref>
+        <Button variant="secondary" className="mt-3 go-home-btn">
+          <Icon name="arrowLeft" className="me-2" />
+          Home
+        </Button>
+      </Link>
+      <EmployeeForm
+        employee={employee}
+        setEmployee={setEmployee}
+        handleSubmit={addEmployeeDetail}
+        mode="add"
+        errors={errors}
+      />
+    </div>
   );
 };
 
