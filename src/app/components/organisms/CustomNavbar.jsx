@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { setView } from "@/app/redux/employeeSlice";

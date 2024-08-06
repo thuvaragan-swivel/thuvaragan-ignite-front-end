@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 // EmployeeFormControl component for handling different form controls.
 const EmployeeFormControl = ({
@@ -48,6 +49,35 @@ const EmployeeFormControl = ({
       <Form.Control.Feedback type="invalid">{feedback}</Form.Control.Feedback>
     </Form.Group>
   );
+};
+
+// Defining PropTypes for the EmployeeFormControl component.
+EmployeeFormControl.propTypes = {
+  controlId: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired,
+  isInvalid: PropTypes.bool,
+  feedback: PropTypes.string,
+  as: PropTypes.oneOf(["input", "select"]),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+// Default props.
+EmployeeFormControl.defaultProps = {
+  type: "text",
+  placeholder: "",
+  isInvalid: false,
+  feedback: "",
+  as: "input",
+  options: [],
 };
 
 export default EmployeeFormControl;

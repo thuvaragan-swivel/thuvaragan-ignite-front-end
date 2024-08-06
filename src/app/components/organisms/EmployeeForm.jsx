@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/app/components/atoms/Button";
 import EmployeeFormGroup from "../molecules/EmployeeFormGroup";
 import Icon from "@/app/components/atoms/Icon";
+import PropTypes from "prop-types";
 
 // EmployeeForm component for adding/editing employee details.
 const EmployeeForm = ({
@@ -119,6 +120,29 @@ const EmployeeForm = ({
       </Form>
     </div>
   );
+};
+
+// Defining PropTypes for the EmployeeForm component.
+EmployeeForm.propTypes = {
+  employee: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    emailAddress: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    gender: PropTypes.string,
+    employeeId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  }).isRequired,
+  setEmployee: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  mode: PropTypes.oneOf(["add", "edit"]).isRequired,
+  errors: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    emailAddress: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    gender: PropTypes.string,
+    employeeId: PropTypes.string,
+  }).isRequired,
 };
 
 export default EmployeeForm;

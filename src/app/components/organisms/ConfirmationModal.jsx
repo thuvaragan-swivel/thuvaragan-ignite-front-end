@@ -4,6 +4,7 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
+import PropTypes from "prop-types";
 
 // ConfirmationModal component for confirming employee deletion.
 const ConfirmationModal = ({ show, handleClose, handleConfirm, employee }) => {
@@ -39,6 +40,17 @@ const ConfirmationModal = ({ show, handleClose, handleConfirm, employee }) => {
       </Modal.Footer>
     </Modal>
   );
+};
+
+// Defining PropTypes for the ConfirmationModal component.
+ConfirmationModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleConfirm: PropTypes.func.isRequired,
+  employee: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+  }),
 };
 
 export default ConfirmationModal;

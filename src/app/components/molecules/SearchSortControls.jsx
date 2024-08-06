@@ -3,6 +3,7 @@
 import React from "react";
 import SearchBox from "@/app/components/atoms/SearchBox";
 import SortDropdown from "@/app/components/atoms/SortDropdown";
+import PropTypes from "prop-types";
 
 // SearchSortControls component for rendering search and sort controls.
 const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
@@ -31,6 +32,17 @@ const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
       />
     </div>
   );
+};
+
+// Defining PropTypes for the SearchSortControls component.
+SearchSortControls.propTypes = {
+  search: PropTypes.string.isRequired,
+  onSearchChange: PropTypes.func.isRequired,
+  sort: PropTypes.shape({
+    field: PropTypes.string.isRequired,
+    order: PropTypes.oneOf(["asc", "desc"]).isRequired,
+  }).isRequired,
+  onSortChange: PropTypes.func.isRequired,
 };
 
 export default SearchSortControls;

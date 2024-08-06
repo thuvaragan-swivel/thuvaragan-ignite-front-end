@@ -5,6 +5,7 @@ import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
 import { useDispatch } from "react-redux";
 import { setPagination } from "@/app/redux/employeeSlice";
+import PropTypes from "prop-types";
 
 // PaginationControls component for navigating between pages.
 const PaginationControls = ({ pagination }) => {
@@ -46,6 +47,14 @@ const PaginationControls = ({ pagination }) => {
       </Button>
     </div>
   );
+};
+
+// Defining PropTypes for the PaginationControls component.
+PaginationControls.propTypes = {
+  pagination: PropTypes.shape({
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default PaginationControls;

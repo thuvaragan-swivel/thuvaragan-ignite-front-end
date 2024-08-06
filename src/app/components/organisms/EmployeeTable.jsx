@@ -6,6 +6,7 @@ import Link from "next/link";
 import GenderImage from "@/app/components/atoms/GenderImage";
 import Button from "@/app/components/atoms/Button";
 import Icon from "@/app/components/atoms/Icon";
+import PropTypes from "prop-types";
 
 // Helper function to get the appropriate gender photo URL.
 const getPhotoUrl = (gender) => {
@@ -85,6 +86,21 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
       </tbody>
     </Table>
   );
+};
+
+// Defining PropTypes for the EmployeeTable component.
+EmployeeTable.propTypes = {
+  employees: PropTypes.arrayOf(
+    PropTypes.shape({
+      employeeId: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      emailAddress: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+      gender: PropTypes.oneOf(["Male", "Female"]).isRequired,
+    })
+  ).isRequired,
+  handleShowModal: PropTypes.func.isRequired,
 };
 
 export default EmployeeTable;
