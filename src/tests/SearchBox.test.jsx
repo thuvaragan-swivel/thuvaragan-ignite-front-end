@@ -1,11 +1,9 @@
-// src/tests/components/SearchBox.test.jsx
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import SearchBox from "@/app/components/atoms/SearchBox";
 
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import SearchBox from '@/app/components/atoms/SearchBox';
-
-describe('SearchBox component', () => {
-  it('renders with the correct type, placeholder, and className', () => {
+describe("SearchBox component", () => {
+  it("renders with the correct type, placeholder, and className", () => {
     render(
       <SearchBox
         type="text"
@@ -16,13 +14,13 @@ describe('SearchBox component', () => {
       />
     );
 
-    const input = screen.getByPlaceholderText('Search here');
+    const input = screen.getByPlaceholderText("Search here");
     expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('type', 'text');
-    expect(input).toHaveClass('search-box');
+    expect(input).toHaveAttribute("type", "text");
+    expect(input).toHaveClass("search-box");
   });
 
-  it('handles change events correctly', () => {
+  it("handles change events correctly", () => {
     const handleChange = jest.fn();
     render(
       <SearchBox
@@ -34,12 +32,12 @@ describe('SearchBox component', () => {
       />
     );
 
-    const input = screen.getByPlaceholderText('Search here');
-    fireEvent.change(input, { target: { value: 'test' } });
+    const input = screen.getByPlaceholderText("Search here");
+    fireEvent.change(input, { target: { value: "test" } });
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
-  it('renders with the correct value', () => {
+  it("renders with the correct value", () => {
     render(
       <SearchBox
         type="text"
@@ -50,7 +48,7 @@ describe('SearchBox component', () => {
       />
     );
 
-    const input = screen.getByDisplayValue('test value');
+    const input = screen.getByDisplayValue("test value");
     expect(input).toBeInTheDocument();
   });
 });
