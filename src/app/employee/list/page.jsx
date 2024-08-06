@@ -74,11 +74,9 @@ const Page = () => {
           `${API_SERVER_URL}/${employeeToDelete.employeeId}`,
           "DELETE"
         );
-        if (response && response.message) {
-          toast.success(response.message);
-        } else {
-          toast.error("Failed to Delete the Employee!");
-        }
+        response?.message
+          ? toast.success(response.message)
+          : toast.error("Failed to Delete the Employee!");
         getEmployeeList();
         handleCloseModal();
       } catch (error) {
