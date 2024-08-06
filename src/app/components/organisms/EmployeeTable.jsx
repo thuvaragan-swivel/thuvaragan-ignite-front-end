@@ -31,7 +31,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
       </thead>
       <tbody>
         {employees.length > 0 ? (
-          employees.map((item, index) => {
+          employees.map((item) => {
             const {
               employeeId,
               firstName,
@@ -41,7 +41,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
               gender,
             } = item;
             return (
-              <tr key={index}>
+              <tr key={employeeId}>
                 <td>
                   <GenderImage
                     src={getPhotoUrl(gender)}

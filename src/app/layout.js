@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientProvider from "@/app/components/organisms/ClientProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PropTypes from "prop-types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,3 +21,8 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// Defining PropTypes for the layout component.
+RootLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

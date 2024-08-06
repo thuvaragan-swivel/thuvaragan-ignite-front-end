@@ -18,7 +18,7 @@ const EmployeeGrid = ({ employees, handleShowModal }) => {
   return (
     <Row className="employee-grid">
       {employees.length > 0 ? (
-        employees.map((item, index) => {
+        employees.map((item) => {
           const {
             employeeId,
             firstName,
@@ -28,7 +28,7 @@ const EmployeeGrid = ({ employees, handleShowModal }) => {
             gender,
           } = item;
           return (
-            <Col key={index} sm={12} md={6} lg={4} className="mb-3">
+            <Col key={employeeId} sm={12} md={6} lg={4} className="mb-3">
               <Card className="employee-card">
                 <Card.Body className="d-flex justify-content-between align-items-center">
                   <div>

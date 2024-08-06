@@ -39,8 +39,8 @@ const EmployeeFormControl = ({
           isInvalid={isInvalid}
         >
           <option value="">Select</option>
-          {options.map((option, index) => (
-            <option key={index} value={option.value}>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
