@@ -319,3 +319,8 @@ html, body {
   justify-content: center;
   align-items: start;
 }
+
+/* No employees found text */
+.text-center {
+  color: black;
+}
