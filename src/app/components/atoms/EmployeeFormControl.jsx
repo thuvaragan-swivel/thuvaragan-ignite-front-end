@@ -70,14 +70,4 @@ EmployeeFormControl.propTypes = {
   ),
 };
 
-// Default props.
-EmployeeFormControl.defaultProps = {
-  type: "text",
-  placeholder: "",
-  isInvalid: false,
-  feedback: "",
-  as: "input",
-  options: [],
-};
-
 export default EmployeeFormControl;

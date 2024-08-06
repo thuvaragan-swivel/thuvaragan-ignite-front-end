@@ -47,9 +47,4 @@ Icon.propTypes = {
   className: PropTypes.string,
 };
 
-// Default props.
-Icon.defaultProps = {
-  className: "",
-};
-
 export default Icon;

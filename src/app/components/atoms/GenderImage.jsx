@@ -16,9 +16,4 @@ GenderImage.propTypes = {
   className: PropTypes.string,
 };
 
-// Default props.
-GenderImage.defaultProps = {
-  className: "",
-};
-
 export default GenderImage;

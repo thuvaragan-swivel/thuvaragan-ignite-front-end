@@ -34,9 +34,4 @@ SortDropdown.propTypes = {
   className: PropTypes.string,
 };
 
-// Default props.
-SortDropdown.defaultProps = {
-  className: "",
-};
-
 export default SortDropdown;

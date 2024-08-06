@@ -26,12 +26,4 @@ SearchBox.propTypes = {
   className: PropTypes.string,
 };
 
-// Default props.
-SearchBox.defaultProps = {
-  type: "text",
-  placeholder: "",
-  value: "",
-  className: "",
-};
-
 export default SearchBox;

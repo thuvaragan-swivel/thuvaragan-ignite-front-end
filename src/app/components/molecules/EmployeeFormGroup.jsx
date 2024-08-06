@@ -52,15 +52,4 @@ EmployeeFormGroup.propTypes = {
   ),
 };
 
-// Default props.
-EmployeeFormGroup.defaultProps = {
-  type: "text",
-  placeholder: "",
-  value: "",
-  isInvalid: false,
-  feedback: "",
-  as: "input",
-  options: [],
-};
-
 export default EmployeeFormGroup;
