@@ -51,11 +51,9 @@ const Page = () => {
         if (hasInitialError) {
           setHasInitialError(false);
         }
-      } else {
-        if (!hasErrorOccurred) {
-          toast.error("Employee Data Unavailable.");
-          setHasErrorOccurred(true);
-        }
+      } else if (!hasErrorOccurred) {
+        toast.error("Employee Data Unavailable.");
+        setHasErrorOccurred(true);
       }
     } catch (error) {
       if (!hasInitialError) {
