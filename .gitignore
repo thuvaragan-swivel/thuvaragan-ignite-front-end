@@ -6,7 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 
-# testing
+# testing report
 /coverage
 
 # next.js
@@ -41,3 +41,6 @@ next-env.d.ts
 
 # Ignore VS Code settings
 .vscode/
+
+# ignore SWC Plugin Folder
+.swc/
