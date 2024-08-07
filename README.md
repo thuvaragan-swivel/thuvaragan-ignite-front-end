@@ -48,6 +48,7 @@ You can access the application locally at http://localhost:3000 or http://localh
 3. **JavaScript**: Programming language
 4. **HTML**: Markup language
 5. **CSS**: Style sheet language
+6. **Jest**: Testing framework
 
 ## Features
 
@@ -64,3 +65,13 @@ You can access the application locally at http://localhost:3000 or http://localh
 ## API Integration
 
 The frontend communicates with the backend APIs to perform CRUD operations and retrieve data. It sends HTTP requests to the backend and processes the responses to update the UI accordingly. This integration allows for seamless interaction between the frontend and backend, ensuring data consistency and real-time updates.
+
+## Running Tests
+
+To run the tests, execute the following command in your terminal:
+
+```bash
+npm test
+```
+
+This command will run all the test cases defined in the project.
