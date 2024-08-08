@@ -110,6 +110,21 @@ const Page = () => {
     getEmployeeList();
   }, [search, sort, pagination.currentPage, pagination.pageSize]);
 
+  // For the loading spinner to not show during view, search, sort, and page changes.
+  let employeeContent;
+
+  if (loading && isInitialLoad) {
+    employeeContent = <LoadingSpinner />;
+  } else if (view === "table") {
+    employeeContent = (
+      <EmployeeTable employees={employees} handleShowModal={handleShowModal} />
+    );
+  } else {
+    employeeContent = (
+      <EmployeeGrid employees={employees} handleShowModal={handleShowModal} />
+    );
+  }
+
   return (
     <div className="center-container">
       <CustomNavbar />
@@ -127,16 +142,7 @@ const Page = () => {
       />
 
       {/* Employee List */}
-      {loading && isInitialLoad ? (
-        <LoadingSpinner />
-      ) : view === "table" ? (
-        <EmployeeTable
-          employees={employees}
-          handleShowModal={handleShowModal}
-        />
-      ) : (
-        <EmployeeGrid employees={employees} handleShowModal={handleShowModal} />
-      )}
+      {employeeContent}
 
       {/* Pagination Controls */}
       <PaginationControls pagination={pagination} />
