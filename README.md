@@ -31,7 +31,7 @@ Create a .env file in the root of your project directory and add the following:
 ```env
 NEXT_PUBLIC_API_BASE_URL = http://localhost:{SERVER_PORT}/api/employee
 ```
-**NOTE**: Replace the SERVER_PORT with the port value you used in the backend.
+**NOTE**: Replace the SERVER_PORT with the port value you used in your backend.
 
 ## Usage
 
@@ -42,8 +42,10 @@ npm run dev
 ```
 
 This will start the development server.  
-Since this is a Next.js App, it runs on port 3000 by default.
-You can access the application locally at http://localhost:3000 or http://localhost:3000/employee/list.
+Since this is a Next.js App, it runs on port 3000 by default.  
+You can access the application locally at http://localhost:3000 or http://localhost:3000/employee/list.  
+
+**NOTE**: Make sure your backend local host server is running while executing this frontend server, to fetch the data.
 
 ## Technologies Used
 
