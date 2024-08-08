@@ -8,6 +8,7 @@ import EmployeeGrid from "@/app/components/organisms/EmployeeGrid";
 import ConfirmationModal from "@/app/components/organisms/ConfirmationModal";
 import PaginationControls from "@/app/components/organisms/PaginationControls";
 import AddSearchSortWrapper from "@/app/components/organisms/AddSearchSortWrapper";
+import LoadingSpinner from "@/app/components/atoms/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch, setSort, setPagination } from "@/app/redux/employeeSlice";
 import { toast } from "react-toastify";
@@ -22,7 +23,8 @@ const Page = () => {
   const [employees, setEmployees] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
-
+  const [loading, setLoading] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const [hasInitialError, setHasInitialError] = useState(false);
   const [hasErrorOccurred, setHasErrorOccurred] = useState(false);
 
@@ -37,6 +39,7 @@ const Page = () => {
     }).toString();
 
     try {
+      setLoading(true);
       const data = await fetchData(`${API_SERVER_URL}?${queryParams}`);
       if (data && Array.isArray(data.data)) {
         setEmployees(data.data);
@@ -63,6 +66,11 @@ const Page = () => {
         setHasInitialError(true);
       }
       setHasErrorOccurred(true);
+    } finally {
+      setLoading(false);
+      if (isInitialLoad) {
+        setIsInitialLoad(false);
+      }
     }
   };
 
@@ -119,7 +127,9 @@ const Page = () => {
       />
 
       {/* Employee List */}
-      {view === "table" ? (
+      {loading && isInitialLoad ? (
+        <LoadingSpinner />
+      ) : view === "table" ? (
         <EmployeeTable
           employees={employees}
           handleShowModal={handleShowModal}
