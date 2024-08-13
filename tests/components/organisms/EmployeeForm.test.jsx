@@ -1,12 +1,11 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import EmployeeForm from "@/app/components/organisms/EmployeeForm";
 import { useRouter } from "next/navigation";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import employeeReducer from "@/app/redux/employeeSlice";
+import employeeReducer from "../../../src/redux/employeeSlice.js";
+import EmployeeForm from "../../../src/components/organisms/EmployeeForm.jsx";
 
-// Mock useRouter
+// Mocking useRouter.
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
@@ -70,5 +69,26 @@ describe("EmployeeForm component", () => {
   it("Calls router.push when the cancel button is clicked.", () => {
     fireEvent.click(screen.getByText(/Cancel/i));
     expect(mockRouter.push).toHaveBeenCalledWith("/employee/list");
+  });
+
+  it("Handles input changes correctly and updates state.", () => {
+    fireEvent.change(screen.getByPlaceholderText(/Enter first name/i), {
+      target: { value: "Johnson" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Enter last name/i), {
+      target: { value: "Davidson" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Enter email address/i), {
+      target: { value: "john@gmail.com" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Enter phone number/i), {
+      target: { value: "+94123456789" },
+    });
+    fireEvent.change(screen.getByLabelText(/Gender/i), {
+      target: { value: "Male" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Enter employee ID/i), {
+      target: { value: 123 },
+    });
   });
 });

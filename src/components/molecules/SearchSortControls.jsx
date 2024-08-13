@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import SearchBox from "@/app/components/atoms/SearchBox";
-import SortDropdown from "@/app/components/atoms/SortDropdown";
 import PropTypes from "prop-types";
+import SearchBox from "../atoms/SearchBox.jsx";
+import SortDropdown from "../atoms/SortDropdown.jsx";
 
 // SearchSortControls component for rendering search and sort controls.
 const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {

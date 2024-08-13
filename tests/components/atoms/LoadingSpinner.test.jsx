@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import LoadingSpinner from "@/app/components/atoms/LoadingSpinner";
+import LoadingSpinner from "../../../src/components/atoms/LoadingSpinner.jsx";
 
 describe("LoadingSpinner", () => {
   test("renders the loading spinner", () => {

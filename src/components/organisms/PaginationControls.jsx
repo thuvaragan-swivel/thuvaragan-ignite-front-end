@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Button from "@/app/components/atoms/Button";
-import Icon from "@/app/components/atoms/Icon";
 import { useDispatch } from "react-redux";
-import { setPagination } from "@/app/redux/employeeSlice";
 import PropTypes from "prop-types";
+import { setPagination } from "../../redux/employeeSlice.js";
+import Button from "../atoms/Button.jsx";
+import Icon from "../atoms/Icon.jsx";
 
 // PaginationControls component for navigating between pages.
 const PaginationControls = ({ pagination }) => {

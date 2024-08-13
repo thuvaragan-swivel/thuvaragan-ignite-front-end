@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { fetchData } from "@/app/utils/fetchApiUtils";
-import CustomNavbar from "@/app/components/organisms/CustomNavbar";
-import EmployeeTable from "@/app/components/organisms/EmployeeTable";
-import EmployeeGrid from "@/app/components/organisms/EmployeeGrid";
-import ConfirmationModal from "@/app/components/organisms/ConfirmationModal";
-import PaginationControls from "@/app/components/organisms/PaginationControls";
-import AddSearchSortWrapper from "@/app/components/organisms/AddSearchSortWrapper";
-import LoadingSpinner from "@/app/components/atoms/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
-import { setSearch, setSort, setPagination } from "@/app/redux/employeeSlice";
 import { toast } from "react-toastify";
-import { API_SERVER_URL } from "@/app/utils/apiServerUrl.js";
+import { API_SERVER_URL } from "../../../utils/apiServerUrl.js";
+import { fetchData } from "../../../utils/fetchApiUtils.js";
+import { setSearch, setSort, setPagination } from "../../../redux/employeeSlice.js";
+import LoadingSpinner from "../../../components/atoms/LoadingSpinner.jsx";
+import CustomNavbar from "../../../components/organisms/CustomNavbar.jsx";
+import EmployeeTable from "../../../components/organisms/EmployeeTable.jsx";
+import EmployeeGrid from "../../../components/organisms/EmployeeGrid.jsx";
+import ConfirmationModal from "../../../components/organisms/ConfirmationModal.jsx";
+import PaginationControls from "../../../components/organisms/PaginationControls.jsx";
+import AddSearchSortWrapper from "../../../components/organisms/AddSearchSortWrapper.jsx";
 
 // Page component for displaying the list of employees.
 const Page = () => {

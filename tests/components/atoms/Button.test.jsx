@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Button from "@/app/components/atoms/Button";
+import Button from "../../../src/components/atoms/Button.jsx";
 
 describe("Button component", () => {
   it("renders with the correct variant and className", () => {

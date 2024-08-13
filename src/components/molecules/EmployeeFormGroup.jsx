@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import EmployeeFormControl from "@/app/components/atoms/EmployeeFormControl";
 import PropTypes from "prop-types";
+import EmployeeFormControl from "../atoms/EmployeeFormControl.jsx";
 
 // EmployeeFormGroup component that wraps EmployeeFormControl with specific props.
 const EmployeeFormGroup = ({

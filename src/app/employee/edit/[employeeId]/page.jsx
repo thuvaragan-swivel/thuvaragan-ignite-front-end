@@ -2,9 +2,9 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import useEmployeeForm from "@/app/hooks/useEmployeeForm";
-import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
-import EmployeeForm from "@/app/components/organisms/EmployeeForm";
+import { API_SERVER_URL } from "../../../../utils/apiServerUrl.js";
+import useEmployeeForm from "../../../../hooks/useEmployeeForm.js";
+import EmployeeForm from "../../../../components/organisms/EmployeeForm.jsx";
 
 // Page component for editing an existing employee.
 const Page = () => {

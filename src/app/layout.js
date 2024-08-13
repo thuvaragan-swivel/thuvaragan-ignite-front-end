@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
-import ClientProvider from "@/app/components/organisms/ClientProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
+import "./globals.css";
+import ClientProvider from "../components/organisms/ClientProvider.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 

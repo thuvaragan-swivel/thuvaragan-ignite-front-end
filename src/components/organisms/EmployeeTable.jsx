@@ -3,10 +3,10 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import Link from "next/link";
-import GenderImage from "@/app/components/atoms/GenderImage";
-import Button from "@/app/components/atoms/Button";
-import Icon from "@/app/components/atoms/Icon";
 import PropTypes from "prop-types";
+import GenderImage from "../atoms/GenderImage.jsx";
+import Button from "../atoms/Button.jsx";
+import Icon from "../atoms/Icon.jsx";
 
 // Helper function to get the appropriate gender photo URL.
 const getPhotoUrl = (gender) => {

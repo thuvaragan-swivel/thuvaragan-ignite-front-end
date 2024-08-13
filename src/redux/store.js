@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import employeeReducer from "./employeeSlice";
 import {
   persistStore,
   persistReducer,
@@ -10,7 +9,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "./storage";
+import storage from "./storage.js";
+import employeeReducer from "./employeeSlice.js";
 
 const rootReducer = combineReducers({
   employee: employeeReducer,

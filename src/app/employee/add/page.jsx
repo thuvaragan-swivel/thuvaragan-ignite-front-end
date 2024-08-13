@@ -2,11 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import useEmployeeForm from "@/app/hooks/useEmployeeForm";
-import { API_SERVER_URL } from "@/app/utils/apiServerUrl";
-import EmployeeForm from "@/app/components/organisms/EmployeeForm";
-import Button from "@/app/components/atoms/Button";
-import Icon from "@/app/components/atoms/Icon";
+import { API_SERVER_URL } from "../../../utils/apiServerUrl.js";
+import useEmployeeForm from "../../../hooks/useEmployeeForm.js";
+import Button from "../../../components/atoms/Button.jsx";
+import Icon from "../../../components/atoms/Icon.jsx";
+import EmployeeForm from "../../../components/organisms/EmployeeForm.jsx";
 
 // Page component for adding a new employee.
 const Page = () => {

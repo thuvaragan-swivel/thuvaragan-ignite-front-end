@@ -3,8 +3,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { setView } from "@/app/redux/employeeSlice";
-import Icon from "@/app/components/atoms/Icon";
+import { setView } from "../../redux/employeeSlice.js";
+import Icon from "../atoms/Icon.jsx";
 
 // CustomNavbar component that includes navigation and view selection.
 const CustomNavbar = () => {

@@ -1,4 +1,4 @@
-import { fetchData } from "./fetchApiUtils";
+import { fetchData } from "./fetchApiUtils.js";
 
 // Function to handle API errors and parse error messages.
 export const handleApiError = (error) => {

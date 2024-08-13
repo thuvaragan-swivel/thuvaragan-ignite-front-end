@@ -2,10 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import Button from "@/app/components/atoms/Button";
-import Icon from "@/app/components/atoms/Icon";
-import SearchSortControls from "@/app/components/molecules/SearchSortControls";
 import PropTypes from "prop-types";
+import Button from "../atoms/Button.jsx";
+import Icon from "../atoms/Icon.jsx";
+import SearchSortControls from "../molecules/SearchSortControls.jsx";
 
 // AddSearchSortWrapper component that includes a button to add a new employee along with the search/sort controls.
 const AddSearchSortWrapper = ({

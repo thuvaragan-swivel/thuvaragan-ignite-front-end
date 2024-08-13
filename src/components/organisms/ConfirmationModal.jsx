@@ -2,9 +2,9 @@
 
 import React from "react";
 import { Modal } from "react-bootstrap";
-import Button from "@/app/components/atoms/Button";
-import Icon from "@/app/components/atoms/Icon";
 import PropTypes from "prop-types";
+import Button from "../atoms/Button.jsx";
+import Icon from "../atoms/Icon.jsx";
 
 // ConfirmationModal component for confirming employee deletion.
 const ConfirmationModal = ({ show, handleClose, handleConfirm, employee }) => {

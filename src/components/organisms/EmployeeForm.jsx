@@ -3,10 +3,10 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useRouter } from "next/navigation";
-import Button from "@/app/components/atoms/Button";
-import EmployeeFormGroup from "../molecules/EmployeeFormGroup";
-import Icon from "@/app/components/atoms/Icon";
 import PropTypes from "prop-types";
+import Button from "../atoms/Button.jsx";
+import Icon from "../atoms/Icon.jsx";
+import EmployeeFormGroup from "../molecules/EmployeeFormGroup.jsx";
 
 // EmployeeForm component for adding/editing employee details.
 const EmployeeForm = ({

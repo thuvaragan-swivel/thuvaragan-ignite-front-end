@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import SortDropdown from "@/app/components/atoms/SortDropdown";
+import SortDropdown from "../../../src/components/atoms/SortDropdown.jsx";
 
 describe("SortDropdown component", () => {
   it("renders with the correct options and value", () => {

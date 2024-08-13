@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchBox from "@/app/components/atoms/SearchBox";
+import SearchBox from "../../../src/components/atoms/SearchBox.jsx";
 
 describe("SearchBox component", () => {
   it("renders with the correct type, placeholder, and className", () => {
