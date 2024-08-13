@@ -86,26 +86,11 @@ const EmployeeForm = ({
             { label: "Female", value: "Female" },
           ]}
         />
-        {/* <EmployeeFormGroup
-          controlId="formEmployeeId"
-          label="Employee ID"
-          type="number"
-          placeholder="Enter employee ID"
-          value={employee.employeeId}
-          onChange={(e) => {
-            const value = e.target.value === "" ? "" : Number(e.target.value);
-            setEmployee({ ...employee, employeeId: value });
-          }}
-          isInvalid={errors.employeeId}
-          feedback={errors.employeeId}
-        /> */}
         {mode === "edit" && (
-          <EmployeeFormGroup
-            controlId="formEmployeeId"
-            label="Employee ID"
-            type="text"
-            value={employee.employeeId}
-          />
+          <div>
+            <br />
+            Employee ID : <strong>{employee.employeeId}</strong>
+          </div>
         )}
         <Button
           onClick={handleSubmit}
