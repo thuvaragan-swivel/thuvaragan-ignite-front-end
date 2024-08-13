@@ -86,7 +86,7 @@ const EmployeeForm = ({
             { label: "Female", value: "Female" },
           ]}
         />
-        <EmployeeFormGroup
+        {/* <EmployeeFormGroup
           controlId="formEmployeeId"
           label="Employee ID"
           type="number"
@@ -98,7 +98,15 @@ const EmployeeForm = ({
           }}
           isInvalid={errors.employeeId}
           feedback={errors.employeeId}
-        />
+        /> */}
+        {mode === "edit" && (
+          <EmployeeFormGroup
+            controlId="formEmployeeId"
+            label="Employee ID"
+            type="text"
+            value={employee.employeeId}
+          />
+        )}
         <Button
           onClick={handleSubmit}
           variant="primary"

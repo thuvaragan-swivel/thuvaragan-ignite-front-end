@@ -9,7 +9,7 @@ import Button from "../atoms/Button.jsx";
 import Icon from "../atoms/Icon.jsx";
 
 // Helper function to get the appropriate gender photo URL.
-const getPhotoUrl = (gender) => {
+const getGenderPhoto = (gender) => {
   return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
 };
 
@@ -44,7 +44,7 @@ const EmployeeTable = ({ employees, handleShowModal }) => {
               <tr key={employeeId}>
                 <td>
                   <GenderImage
-                    src={getPhotoUrl(gender)}
+                    src={getGenderPhoto(gender)}
                     alt={`${gender} icon`}
                     className="employee-photo"
                   />

@@ -56,7 +56,8 @@ describe("EmployeeForm component", () => {
     expect(screen.getByLabelText(/Email Address/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Phone Number/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Gender/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Employee ID/i)).toBeInTheDocument();
+    // Employee ID field should not be rendered in add mode.
+    expect(screen.queryByLabelText(/Employee ID/i)).toBeNull();
     expect(screen.getByText(/Add Employee/i)).toBeInTheDocument();
     expect(screen.getByText(/Cancel/i)).toBeInTheDocument();
   });
@@ -87,8 +88,6 @@ describe("EmployeeForm component", () => {
     fireEvent.change(screen.getByLabelText(/Gender/i), {
       target: { value: "Male" },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Enter employee ID/i), {
-      target: { value: 123 },
-    });
+    // No test for employee ID in add mode.
   });
 });
