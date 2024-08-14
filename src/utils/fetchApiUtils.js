@@ -10,7 +10,7 @@ export const fetchData = async (url, method = "GET", body = null) => {
   };
 
   if (body) {
-    options.body = JSON.stringify(body); // Converting body to JSON if provided.
+    options.body = JSON.stringify(body); // Converting body to string if provided.
     log.info(`Sending ${method} request to ${url} with body:`, body, "\n");
   }
 
@@ -23,6 +23,6 @@ export const fetchData = async (url, method = "GET", body = null) => {
   } else {
     const errorMessage = data.message || "Something went wrong";
     log.error(`Error Response from ${url}: ${errorMessage}\n`);
-    throw new Error(JSON.stringify(errorMessage)); // Ensuring error is a JSON string.
+    throw new Error(JSON.stringify(errorMessage)); // Ensuring error is a string.
   }
 };
