@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { VIEW_OPTIONS } from "../config/constantsConfig";
 
 // Default state values.
 const initialState = {
-  view: "table",
+  view: VIEW_OPTIONS.TABLE,
   search: "",
   sort: { field: "", order: "" },
   pagination: {
@@ -22,7 +23,7 @@ const employeeSlice = createSlice({
     },
     // Toggle between table and grid view.
     resetView: (state) => {
-      state.view = state.view === "table" ? "grid" : "table";
+      state.view = state.view === VIEW_OPTIONS.TABLE ? VIEW_OPTIONS.GRID : VIEW_OPTIONS.TABLE;
     },
     // Update search query.
     setSearch: (state, action) => {

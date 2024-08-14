@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { API_SERVER_URL } from "../../../../utils/apiServerUrl.js";
 import useEmployeeForm from "../../../../hooks/useEmployeeForm.js";
 import EmployeeForm from "../../../../components/organisms/EmployeeForm.jsx";
+import { FORM_MODES } from "../../../../config/constantsConfig.js";
 import log from "../../../../config/loggerConfig.js";
 
 // Page component for editing an existing employee.
@@ -23,7 +24,7 @@ const Page = () => {
   // Custom hook to manage employee form state and submission.
   const { employee, setEmployee, errors, submitForm } = useEmployeeForm(
     initialEmployee,
-    "edit",
+    FORM_MODES.EDIT,
     employeeId
   );
 
@@ -42,7 +43,7 @@ const Page = () => {
       employee={employee}
       setEmployee={setEmployee}
       handleSubmit={updateEmployeeData}
-      mode="edit"
+      mode={FORM_MODES.EDIT}
       errors={errors}
     />
   );

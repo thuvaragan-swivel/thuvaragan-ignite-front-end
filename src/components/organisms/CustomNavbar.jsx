@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { setView } from "../../redux/employeeSlice.js";
 import Icon from "../atoms/Icon.jsx";
+import { VIEW_OPTIONS } from "../../config/constantsConfig.js";
 
 // CustomNavbar component that includes navigation and view selection.
 const CustomNavbar = () => {
@@ -35,14 +36,14 @@ const CustomNavbar = () => {
           >
             <NavDropdown.Item
               onClick={() => dispatch(setView("table"))}
-              active={view === "table"}
+              active={view === VIEW_OPTIONS.TABLE}
             >
               <Icon name="table" className="me-2" />
               Table
             </NavDropdown.Item>
             <NavDropdown.Item
               onClick={() => dispatch(setView("grid"))}
-              active={view === "grid"}
+              active={view === VIEW_OPTIONS.GRID}
             >
               <Icon name="grid" className="me-2" />
               Grid

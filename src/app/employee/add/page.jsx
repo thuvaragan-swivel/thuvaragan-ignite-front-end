@@ -7,6 +7,7 @@ import useEmployeeForm from "../../../hooks/useEmployeeForm.js";
 import Button from "../../../components/atoms/Button.jsx";
 import Icon from "../../../components/atoms/Icon.jsx";
 import EmployeeForm from "../../../components/organisms/EmployeeForm.jsx";
+import { FORM_MODES } from "../../../config/constantsConfig.js";
 import log from "../../../config/loggerConfig.js";
 
 // Page component for adding a new employee.
@@ -23,7 +24,7 @@ const Page = () => {
   // Custom hook to manage employee form state and submission.
   const { employee, setEmployee, errors, submitForm } = useEmployeeForm(
     initialEmployee,
-    "add"
+    FORM_MODES.ADD
   );
 
   // Logging when the add employee component is mounted.
@@ -48,7 +49,7 @@ const Page = () => {
         employee={employee}
         setEmployee={setEmployee}
         handleSubmit={addEmployeeDetail}
-        mode="add"
+        mode={FORM_MODES.ADD}
         errors={errors}
       />
     </div>

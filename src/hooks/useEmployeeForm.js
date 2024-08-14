@@ -10,6 +10,7 @@ import {
   performApiRequest,
 } from "../utils/employeeUtils.js";
 import EmployeeFormValidation from "../validation/employeeFormValidation.js";
+import { FORM_MODES } from "../config/constantsConfig.js";
 import log from "../config/loggerConfig.js";
 
 // Custom hook to manage employee form state and submission.
@@ -20,7 +21,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
 
   // Fetch employee data when in edit mode and employeeId is provided.
   useEffect(() => {
-    if (mode === "edit" && employeeId) {
+    if (mode === FORM_MODES.EDIT && employeeId) {
       const fetchEmployeeData = async () => {
         log.info(`Fetching Employee Data for ID: ${employeeId}\n`);
         try {
@@ -60,7 +61,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
 
       const successMessage =
         data.message ||
-        (mode === "add"
+        (mode === FORM_MODES.ADD
           ? `A New Employee named ${data.data.firstName} ${data.data.lastName} has been Successfully Added to the System.`
           : "The Employee Data has been Successfully Updated.");
 
@@ -68,7 +69,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
       log.info(`Form Submission is Successful: ${successMessage}\n`);
 
       // Redirect or reset form based on mode.
-      if (mode === "add") {
+      if (mode === FORM_MODES.ADD) {
         setEmployee(initialEmployee);
       } else {
         router.push("/employee/list");

@@ -4,22 +4,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import SearchBox from "../atoms/SearchBox.jsx";
 import SortDropdown from "../atoms/SortDropdown.jsx";
+import { SORT_OPTIONS, PLACEHOLDERS } from "../../config/constantsConfig.js";
 
 // SearchSortControls component for rendering search and sort controls.
 const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
-  const sortOptions = [
-    { value: "", label: "Sort by" },
-    { value: "firstName-asc", label: "First Name (Asc)" },
-    { value: "firstName-desc", label: "First Name (Desc)" },
-    { value: "createdAt-asc", label: "Created At (Asc)" },
-    { value: "createdAt-desc", label: "Created At (Desc)" },
-  ];
-
   return (
     <div className="search-sort-container mb-3">
       <SearchBox
         type="text"
-        placeholder="Search by First Name, Last Name, or Email"
+        placeholder={PLACEHOLDERS.searchBox}
         value={search}
         onChange={onSearchChange}
         className="mb-3"
@@ -27,7 +20,7 @@ const SearchSortControls = ({ search, onSearchChange, sort, onSortChange }) => {
       <SortDropdown
         value={`${sort.field}-${sort.order}`}
         onChange={onSortChange}
-        options={sortOptions}
+        options={SORT_OPTIONS}
         className="mb-3"
       />
     </div>

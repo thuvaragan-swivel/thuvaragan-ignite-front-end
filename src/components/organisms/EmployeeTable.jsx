@@ -10,7 +10,7 @@ import Icon from "../atoms/Icon.jsx";
 
 // Helper function to get the appropriate gender photo URL.
 const getGenderPhoto = (gender) => {
-  return gender === "Male" ? "/icons/male-grid.png" : "/icons/female-grid.png";
+  return gender === "Male" ? "/icons/male-icon.png" : "/icons/female-icon.png";
 };
 
 // EmployeeTable component for displaying employees in a table layout.

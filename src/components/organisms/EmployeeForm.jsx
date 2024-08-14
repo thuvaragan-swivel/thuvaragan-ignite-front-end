@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import Button from "../atoms/Button.jsx";
 import Icon from "../atoms/Icon.jsx";
 import EmployeeFormGroup from "../molecules/EmployeeFormGroup.jsx";
+import { GENDER_OPTIONS, PLACEHOLDERS, FORM_MODES } from "../../config/constantsConfig.js";
 
 // EmployeeForm component for adding/editing employee details.
 const EmployeeForm = ({
@@ -29,7 +30,7 @@ const EmployeeForm = ({
           controlId="formFirstName"
           label="First Name"
           type="text"
-          placeholder="Enter first name"
+          placeholder={PLACEHOLDERS.firstName}
           value={employee.firstName}
           onChange={(e) =>
             setEmployee({ ...employee, firstName: e.target.value })
@@ -41,7 +42,7 @@ const EmployeeForm = ({
           controlId="formLastName"
           label="Last Name"
           type="text"
-          placeholder="Enter last name"
+          placeholder={PLACEHOLDERS.lastName}
           value={employee.lastName}
           onChange={(e) =>
             setEmployee({ ...employee, lastName: e.target.value })
@@ -53,7 +54,7 @@ const EmployeeForm = ({
           controlId="formEmailAddress"
           label="Email Address"
           type="email"
-          placeholder="Enter email address  ( format: username@domain.tld )"
+          placeholder={PLACEHOLDERS.emailAddress}
           value={employee.emailAddress}
           onChange={(e) =>
             setEmployee({ ...employee, emailAddress: e.target.value })
@@ -65,7 +66,7 @@ const EmployeeForm = ({
           controlId="formPhoneNumber"
           label="Phone Number"
           type="text"
-          placeholder="Enter phone number  ( format: +94xxxxxxxxx )"
+          placeholder={PLACEHOLDERS.phoneNumber}
           value={employee.phoneNumber}
           onChange={(e) =>
             setEmployee({ ...employee, phoneNumber: e.target.value })
@@ -81,12 +82,9 @@ const EmployeeForm = ({
           onChange={(e) => setEmployee({ ...employee, gender: e.target.value })}
           isInvalid={errors.gender}
           feedback={errors.gender}
-          options={[
-            { label: "Male", value: "Male" },
-            { label: "Female", value: "Female" },
-          ]}
+          options={GENDER_OPTIONS}
         />
-        {mode === "edit" && (
+        {mode === FORM_MODES.EDIT && (
           <div>
             <br />
             Employee ID : <strong>{employee.employeeId}</strong>
@@ -98,8 +96,8 @@ const EmployeeForm = ({
           type="button"
           className="mt-3 submit-btn"
         >
-          <Icon name={mode === "add" ? "add" : "edit"} className="me-2" />
-          {mode === "add" ? "Add Employee" : "Update Employee"}
+          <Icon name={mode === FORM_MODES.ADD ? "add" : "edit"} className="me-2" />
+          {mode === FORM_MODES.ADD ? "Add Employee" : "Update Employee"}
         </Button>
         <Button
           onClick={handleCancel}

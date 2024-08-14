@@ -5,7 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { API_SERVER_URL } from "../../../utils/apiServerUrl.js";
 import { fetchData } from "../../../utils/fetchApiUtils.js";
-import { setSearch, setSort, setPagination } from "../../../redux/employeeSlice.js";
+import {
+  setSearch,
+  setSort,
+  setPagination,
+} from "../../../redux/employeeSlice.js";
 import LoadingSpinner from "../../../components/atoms/LoadingSpinner.jsx";
 import CustomNavbar from "../../../components/organisms/CustomNavbar.jsx";
 import EmployeeTable from "../../../components/organisms/EmployeeTable.jsx";
@@ -13,6 +17,7 @@ import EmployeeGrid from "../../../components/organisms/EmployeeGrid.jsx";
 import ConfirmationModal from "../../../components/organisms/ConfirmationModal.jsx";
 import PaginationControls from "../../../components/organisms/PaginationControls.jsx";
 import AddSearchSortWrapper from "../../../components/organisms/AddSearchSortWrapper.jsx";
+import { VIEW_OPTIONS } from "../../../config/constantsConfig.js";
 import log from "../../../config/loggerConfig.js";
 
 // Page component for displaying the list of employees.
@@ -81,7 +86,11 @@ const Page = () => {
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
-        log.info("Attempting to Delete Employee with ID:", employeeToDelete.employeeId, "\n");
+        log.info(
+          "Attempting to Delete Employee with ID:",
+          employeeToDelete.employeeId,
+          "\n"
+        );
         const response = await fetchData(
           `${API_SERVER_URL}/${employeeToDelete.employeeId}`,
           "DELETE"
@@ -114,7 +123,9 @@ const Page = () => {
 
   // Fetch employee list whenever search, sort, or pagination changes.
   useEffect(() => {
-    log.info("Search, Sort, or Pagination Modified; Fetching Employee List...\n");
+    log.info(
+      "Search, Sort, or Pagination Modified; Fetching Employee List...\n"
+    );
     getEmployeeList();
   }, [search, sort, pagination.currentPage, pagination.pageSize]);
 
@@ -123,7 +134,7 @@ const Page = () => {
 
   if (loading && isInitialLoad) {
     employeeContent = <LoadingSpinner />;
-  } else if (view === "table") {
+  } else if (view === VIEW_OPTIONS.TABLE) {
     employeeContent = (
       <EmployeeTable employees={employees} handleShowModal={handleShowModal} />
     );
