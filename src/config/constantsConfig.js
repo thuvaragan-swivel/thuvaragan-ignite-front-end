@@ -1,4 +1,4 @@
-// Sort options for SearchSortControls component.
+// Sort Options for SearchSortControls Component.
 export const SORT_OPTIONS = [
   { value: "", label: "Sort by" },
   { value: "firstName-asc", label: "First Name (Asc)" },
@@ -7,13 +7,13 @@ export const SORT_OPTIONS = [
   { value: "createdAt-desc", label: "Created At (Desc)" },
 ];
 
-// Gender options for EmployeeForm component.
+// Gender Options for EmployeeForm Component.
 export const GENDER_OPTIONS = [
   { label: "Male", value: "Male" },
   { label: "Female", value: "Female" },
 ];
 
-// Placeholder texts for EmployeeForm component.
+// Placeholder Texts for EmployeeForm Component.
 export const PLACEHOLDERS = {
   firstName: "Enter first name",
   lastName: "Enter last name",
@@ -22,7 +22,7 @@ export const PLACEHOLDERS = {
   searchBox: "Search by First Name, Last Name, or Email",
 };
 
-// View options.
+// View Options.
 export const VIEW_OPTIONS = {
   TABLE: "table",
   GRID: "grid",
