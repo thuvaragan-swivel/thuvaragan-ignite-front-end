@@ -9,7 +9,7 @@ import {
   formatEmployeeData,
   performApiRequest,
 } from "../utils/employeeUtils.js";
-import EmployeeValidationUtils from "../utils/employeeValidationUtils.js";
+import EmployeeFormValidation from "../validation/employeeFormValidation.js";
 
 // Custom hook to manage employee form state and submission.
 const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
@@ -42,7 +42,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
     const formattedEmployee = formatEmployeeData(employee);
 
     // Validating the form data before submission.
-    const validationErrors = await EmployeeValidationUtils.validate(
+    const validationErrors = await EmployeeFormValidation.validate(
       formattedEmployee
     );
 

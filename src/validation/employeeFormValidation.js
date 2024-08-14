@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 // This is for the Employee Data Validation.
 // Handling validation using Yup.
-class EmployeeValidationUtils {
+class EmployeeFormValidation {
   // Defining the Yup schema for employee data validation.
   static employeeValidationSchema = yup.object({
     firstName: yup
@@ -64,4 +64,4 @@ class EmployeeValidationUtils {
   }
 }
 
-export default EmployeeValidationUtils;
+export default EmployeeFormValidation;
