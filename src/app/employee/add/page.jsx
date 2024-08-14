@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { API_SERVER_URL } from "../../../utils/apiServerUrl.js";
 import useEmployeeForm from "../../../hooks/useEmployeeForm.js";
 import Button from "../../../components/atoms/Button.jsx";
 import Icon from "../../../components/atoms/Icon.jsx";
 import EmployeeForm from "../../../components/organisms/EmployeeForm.jsx";
+import log from "../../../config/loggerConfig.js";
 
 // Page component for adding a new employee.
 const Page = () => {
@@ -24,6 +25,11 @@ const Page = () => {
     initialEmployee,
     "add"
   );
+
+  // Logging when the add employee component is mounted.
+  useEffect(() => {
+    log.info("Page Component Mounted for Adding a New Employee.\n");
+  }, []);
 
   // Function to handle adding employee details.
   const addEmployeeDetail = async () => {

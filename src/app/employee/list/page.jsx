@@ -13,6 +13,7 @@ import EmployeeGrid from "../../../components/organisms/EmployeeGrid.jsx";
 import ConfirmationModal from "../../../components/organisms/ConfirmationModal.jsx";
 import PaginationControls from "../../../components/organisms/PaginationControls.jsx";
 import AddSearchSortWrapper from "../../../components/organisms/AddSearchSortWrapper.jsx";
+import log from "../../../config/loggerConfig.js";
 
 // Page component for displaying the list of employees.
 const Page = () => {
@@ -40,9 +41,11 @@ const Page = () => {
 
     try {
       setLoading(true);
+      log.info("Fetching Employee List with Query Params:", queryParams, "\n");
       const data = await fetchData(`${API_SERVER_URL}?${queryParams}`);
       if (data && Array.isArray(data.data)) {
         setEmployees(data.data);
+        log.info("Employee List Fetched Successfully.\n");
         dispatch(
           setPagination({
             currentPage: data.pagination.currentPage,
@@ -78,6 +81,7 @@ const Page = () => {
   const handleDelete = async () => {
     if (employeeToDelete) {
       try {
+        log.info("Attempting to Delete Employee with ID:", employeeToDelete.employeeId, "\n");
         const response = await fetchData(
           `${API_SERVER_URL}/${employeeToDelete.employeeId}`,
           "DELETE"
@@ -89,24 +93,28 @@ const Page = () => {
         handleCloseModal();
       } catch (error) {
         toast.error("An error occurred while Deleting the Employee!");
+        log.error("Error Deleting Employee:", error, "\n");
       }
     }
   };
 
   // Function to show the confirmation modal.
   const handleShowModal = (employee) => {
+    log.info("Opening Delete Confirmation Modal for Employee:", employee, "\n");
     setEmployeeToDelete(employee);
     setShowModal(true);
   };
 
   // Function to close the confirmation modal.
   const handleCloseModal = () => {
+    log.info("Closing Delete Confirmation Modal.\n");
     setEmployeeToDelete(null);
     setShowModal(false);
   };
 
   // Fetch employee list whenever search, sort, or pagination changes.
   useEffect(() => {
+    log.info("Search, Sort, or Pagination Modified; Fetching Employee List...\n");
     getEmployeeList();
   }, [search, sort, pagination.currentPage, pagination.pageSize]);
 
@@ -119,10 +127,12 @@ const Page = () => {
     employeeContent = (
       <EmployeeTable employees={employees} handleShowModal={handleShowModal} />
     );
+    log.info("Displaying Employee List in Table View.\n");
   } else {
     employeeContent = (
       <EmployeeGrid employees={employees} handleShowModal={handleShowModal} />
     );
+    log.info("Displaying Employee List in Grid View.\n");
   }
 
   return (

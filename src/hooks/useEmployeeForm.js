@@ -10,6 +10,7 @@ import {
   performApiRequest,
 } from "../utils/employeeUtils.js";
 import EmployeeFormValidation from "../validation/employeeFormValidation.js";
+import log from "../config/loggerConfig.js";
 
 // Custom hook to manage employee form state and submission.
 const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
@@ -21,6 +22,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
   useEffect(() => {
     if (mode === "edit" && employeeId) {
       const fetchEmployeeData = async () => {
+        log.info(`Fetching Employee Data for ID: ${employeeId}\n`);
         try {
           const data = await performApiRequest(
             `${API_SERVER_URL}/${employeeId}`,
@@ -48,6 +50,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
 
     if (validationErrors) {
       setErrors(validationErrors);
+      log.warn(`Form Validation Errors:\n${JSON.stringify(validationErrors, null, 2)}\n`);
       return;
     }
 
@@ -62,6 +65,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
           : "The Employee Data has been Successfully Updated.");
 
       toast.success(successMessage);
+      log.info(`Form Submission is Successful: ${successMessage}\n`);
 
       // Redirect or reset form based on mode.
       if (mode === "add") {
@@ -73,6 +77,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
     } catch (error) {
       const errorMessages = handleApiError(error);
       setErrors(errorMessages);
+      log.error(`Error Submitting Form: ${error.message}\n`);
     }
   };
 

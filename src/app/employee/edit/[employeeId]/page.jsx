@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { API_SERVER_URL } from "../../../../utils/apiServerUrl.js";
 import useEmployeeForm from "../../../../hooks/useEmployeeForm.js";
 import EmployeeForm from "../../../../components/organisms/EmployeeForm.jsx";
+import log from "../../../../config/loggerConfig.js";
 
 // Page component for editing an existing employee.
 const Page = () => {
@@ -25,6 +26,11 @@ const Page = () => {
     "edit",
     employeeId
   );
+
+  // Logging when the edit employee component is mounted.
+  useEffect(() => {
+    log.info("Page Component Mounted for Updating an Existing Employee.\n");
+  }, []);
 
   // Function to handle updating employee details.
   const updateEmployeeData = async () => {
