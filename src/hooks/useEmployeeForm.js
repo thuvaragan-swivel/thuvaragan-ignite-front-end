@@ -77,7 +77,7 @@ const useEmployeeForm = (initialEmployee, mode, employeeId = null) => {
     } catch (error) {
       const errorMessages = handleApiError(error);
       setErrors(errorMessages);
-      log.error(`Error Submitting Form: ${error.message}\n`);
+      log.error(`Error Submitting Form:\n${error.message, null, 2}\n`);
     }
   };
 
